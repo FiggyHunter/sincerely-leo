@@ -1,0 +1,23 @@
+---
+import { marked } from "marked";
+import Header from "./Header.astro";
+
+// TO:DO need a interface for props
+
+const { post } = Astro.props;
+
+const content = marked.parse(post.attributes.Content);
+---
+
+<Header />
+<Fragment set:html={content} />
+
+<style is:global>
+  h2 {
+    color: red;
+  }
+  img {
+    margin: 0 auto;
+    width: 50;
+  }
+</style>
