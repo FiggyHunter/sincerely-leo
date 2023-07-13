@@ -1,21 +1,34 @@
 ---
-import { CollectionEntry, getCollection } from 'astro:content';
-import BlogPost from '../../layouts/BlogPost.astro';
+import { slugify } from "@/utils/format";
+import RenderedContent from "../../components/RenderedContent.astro";
+import BlogPost from "../../layouts/BlogPost.astro";
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
-	return posts.map((post) => ({
-		params: { slug: post.slug },
-		props: post,
-	}));
+  //Fetching posts
+  const res = await fetch("http://localhost:1337/api/posts");
+  const { data: posts } = await res.json();
+
+  //generating
+  return posts.map((post) => ({
+    params: { slug: slugify(post.attributes.Title) },
+    props: post,
+  }));
 }
-type Props = CollectionEntry<'blog'>;
 
 const post = Astro.props;
-const { Content } = await post.render();
 ---
 
-<BlogPost {...post.data}>
-	<h1>{post.data.title}</h1>
-	<Content />
-</BlogPost>
+<article class="test">
+  <div class=""></div>
+  <article>
+    <RenderedContent {post} />
+  </article>
+  <div class=""></div>
+</article>
+
+<style lang="scss">
+  .test {
+    display: grid;
+    grid-template-columns: 5fr 3fr 5fr;
+  }
+</style>
