@@ -1,5 +1,13 @@
 ---
 import { marked } from "marked";
+import { gfmHeadingId } from "marked-gfm-heading-id";
+
+marked
+  .use({
+    mangle: false,
+    headerIds: true,
+  })
+  .use(gfmHeadingId({ prefix: "" }));
 import Header from "./Header.astro";
 
 // TO:DO need a interface for props
@@ -13,11 +21,14 @@ const content = marked.parse(post.attributes.Content);
 <Fragment set:html={content} />
 
 <style is:global>
+  figure {
+    justify-self: center;
+  }
   h2 {
     color: red;
   }
+
   img {
-    margin: 0 auto;
-    width: 50;
+    justify-self: center;
   }
 </style>
