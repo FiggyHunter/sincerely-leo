@@ -1,0 +1,18 @@
+:root {
+  --primary-text-color: black;
+  --nav-background: black;
+  --nav-text: white;
+  --accent-color: #ff00c7;
+}
+
+.dark-mode {
+  --primary-text-color: white;
+  --nav-background: white;
+  --nav-text: black;
+  --accent-color: #ff00c7;
+}
+
+$primary-text: var(--primary-text-color);
+$nav-background: var(--nav-background);
+$nav-text: var(--nav-text);
+$accent-color: var(--accent-color);
