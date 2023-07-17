@@ -1,0 +1,146 @@
+/* Font Face declaration for Grandstander Regular */
+@font-face {
+  font-family: "Grandstander Regular";
+  src: url("/fonts/Grandstander-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+/* Font Face declaration for Grandstander Italic */
+@font-face {
+  font-family: "Grandstander Italic";
+  src: url("/fonts/Grandstander-Italic.ttf") format("truetype");
+  font-display: swap;
+}
+
+/* Font Face declaration for Grandstander Thin */
+@font-face {
+  font-family: "Grandstander Thin";
+  src: url("/fonts/Grandstander-Thin.ttf") format("truetype");
+  font-display: swap;
+}
+
+/* Font Face declaration for Grandstander Thin Italic */
+@font-face {
+  font-family: "Grandstander Thin Italic";
+  src: url("/fonts/Grandstander-ThinItalic.ttf") format("truetype");
+  font-display: swap;
+}
+
+/* Font Face declaration for Grandstander ExtraLight */
+@font-face {
+  font-family: "Grandstander ExtraLight";
+  src: url("/fonts/Grandstander-ExtraLight.ttf") format("truetype");
+  font-display: swap;
+}
+
+/* Font Face declaration for Grandstander ExtraLight Italic */
+@font-face {
+  font-family: "Grandstander ExtraLight Italic";
+  src: url("/fonts/Grandstander-ExtraLightItalic.ttf") format("truetype");
+  font-display: swap;
+}
+
+/* Font Face declaration for Grandstander Light */
+@font-face {
+  font-family: "Grandstander Light";
+  src: url("/fonts/Grandstander-Light.ttf") format("truetype");
+  font-display: swap;
+}
+
+/* Font Face declaration for Grandstander Light Italic */
+@font-face {
+  font-family: "Grandstander Light Italic";
+  src: url("/fonts/Grandstander-LightItalic.ttf") format("truetype");
+  font-display: swap;
+}
+
+/* Font Face declaration for Grandstander Medium */
+@font-face {
+  font-family: "Grandstander Medium";
+  src: url("/fonts/Grandstander-Medium.ttf") format("truetype");
+  font-display: swap;
+}
+
+/* Font Face declaration for Grandstander Medium Italic */
+@font-face {
+  font-family: "Grandstander Medium Italic";
+  src: url("/fonts/Grandstander-MediumItalic.ttf") format("truetype");
+  font-display: swap;
+}
+
+/* Font Face declaration for Grandstander SemiBold */
+@font-face {
+  font-family: "Grandstander SemiBold";
+  src: url("/fonts/Grandstander-SemiBold.ttf") format("truetype");
+  font-display: swap;
+}
+
+/* Font Face declaration for Grandstander SemiBold Italic */
+@font-face {
+  font-family: "Grandstander SemiBold Italic";
+  src: url("/fonts/Grandstander-SemiBoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+
+/* Font Face declaration for Grandstander Bold */
+@font-face {
+  font-family: "Grandstander Bold";
+  src: url("/fonts/Grandstander-Bold.ttf") format("truetype");
+  font-display: swap;
+}
+
+/* Font Face declaration for Grandstander Bold Italic */
+@font-face {
+  font-family: "Grandstander Bold Italic";
+  src: url("/fonts/Grandstander-BoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+
+/* Font Face declaration for Grandstander ExtraBold */
+@font-face {
+  font-family: "Grandstander ExtraBold";
+  src: url("/fonts/Grandstander-ExtraBold.ttf") format("truetype");
+  font-display: swap;
+}
+
+/* Font Face declaration for Grandstander ExtraBold Italic */
+@font-face {
+  font-family: "Grandstander ExtraBold Italic";
+  src: url("/fonts/Grandstander-ExtraBoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+
+/* Font Face declaration for Grandstander Black */
+@font-face {
+  font-family: "Grandstander Black";
+  src: url("/fonts/Grandstander-Black.ttf") format("truetype");
+  font-display: swap;
+}
+
+/* Font Face declaration for Grandstander Black Italic */
+@font-face {
+  font-family: "Grandstander Black Italic";
+  src: url("/fonts/Grandstander-BlackItalic.ttf") format("truetype");
+  font-display: swap;
+}
+
+/* Font variables */
+
+$grand-regular: "Grandstander Regular", sans-serif;
+$grand-italic: "Grandstander Italic", sans-serif;
+$grand-thin: "Grandstander Thin", sans-serif;
+$grand-thin-italic: "Grandstander Thin Italic", sans-serif;
+$grand-extra-light: "Grandstander ExtraLight", sans-serif;
+$grand-extra-light-italic: "Grandstander ExtraLight Italic", sans-serif;
+$grand-light: "Grandstander Light", sans-serif;
+$grand-light-italic: "Grandstander Light Italic", sans-serif;
+$grand-medium: "Grandstander Medium", sans-serif;
+$grand-medium-italic: "Grandstander Medium Italic", sans-serif;
+$grand-semi-bold: "Grandstander SemiBold", sans-serif;
+$grand-semi-bold-italic: "Grandstander SemiBold Italic", sans-serif;
+$grand-bold: "Grandstander Bold", sans-serif;
+$grand-bold-italic: "Grandstander Bold Italic", sans-serif;
+$grand-extra-bold: "Grandstander ExtraBold", sans-serif;
+$grand-extra-bold-italic: "Grandstander ExtraBold Italic", sans-serif;
+$grand-black: "Grandstander Black", sans-serif;
+$grand-black-italic: "Grandstander Black Italic", sans-serif;
