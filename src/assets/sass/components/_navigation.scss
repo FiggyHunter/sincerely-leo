@@ -6,7 +6,15 @@ h1 {
   // font-size: clamp(helpers-pxToRem(16px), 1rem + 1vw, helpers-pxToRem(32px));
 }
 
+header {
+  position: relative;
+  padding-top: 1rem;
+}
+
 .main-navigation {
+  position: fixed;
+  top: 1rem;
+  z-index: 100;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.361);
   border-radius: 5rem;
   padding: 0.8rem 5%;
@@ -15,17 +23,18 @@ h1 {
   background-color: $colors-nav-background;
   color: $colors-nav-text;
   align-items: center;
-  width: 85%;
-  margin: 1rem auto 0rem auto;
+  width: 90%;
+  left: 5%;
 
-  @media screen and (min-width: helpers-pxToRem(800px)) {
-    width: 70%;
-    padding: 0.8rem 2%;
+  @media screen and (min-width: helpers-pxToRem(600px)) {
+    width: 85%;
+    left: 7.5%;
   }
-  @media screen and (min-width: helpers-pxToRem(1250px)) {
-    width: 70%;
-    padding: 0.8rem 2%;
+  @media screen and (min-width: helpers-pxToRem(1200px)) {
+    width: 65%;
+    left: 17.5%;
   }
+
   &__link {
     position: relative;
     top: 2.5px;
@@ -39,7 +48,7 @@ h1 {
   &__mobile-ctr {
     display: flex;
     gap: 1rem;
-    @media screen and (min-width: helpers-pxToRem(800px)) {
+    @media screen and (min-width: helpers-pxToRem(900px)) {
       display: none;
     }
     button {
@@ -50,18 +59,20 @@ h1 {
   }
   &__desktop-ctr {
     display: none;
-    .moon {
+    .moon,
+    .sun {
       margin-left: 1rem;
-      position: relative;
       display: grid;
       width: 24px;
       height: 24px;
     }
-    @media screen and (min-width: helpers-pxToRem(800px)) {
+
+    @media screen and (min-width: helpers-pxToRem(900px)) {
       display: flex;
       gap: 1rem;
       font-family: $fonts-grand-medium;
       a {
+        transition: color 0.3s;
         &:hover {
           color: $colors-accent-color;
         }
@@ -82,12 +93,16 @@ h1 {
   .menu {
     transition: fill 0.3s;
     fill: $colors-nav-text;
-    &:hover {
+    &:focus {
       cursor: pointer;
       fill: $colors-accent-color;
     }
+    &--active {
+      fill: $colors-accent-color;
+    }
   }
-  .moon {
+  .moon,
+  .sun {
     transition: fill 0.3s;
     &:hover {
       cursor: pointer;
@@ -95,4 +110,106 @@ h1 {
     }
     fill: $colors-nav-text;
   }
+}
+
+.mobile-menu {
+  display: grid;
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100dvh;
+  background-color: #474545;
+  width: 100vw;
+  @media screen and (min-width: helpers-pxToRem(900px)) {
+    display: none;
+  }
+  &__navigation {
+    justify-items: center;
+    align-self: end;
+    height: 90%;
+    padding: 1rem 0rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 2rem;
+    .box {
+      height: 100%;
+      max-height: 350px;
+      width: 90%;
+      max-width: 300px;
+      background-color: black;
+    }
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    top: -1500px;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    top: 0px;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    top: 0px;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    top: -1500px;
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    top: -100px;
+  }
+
+  100% {
+    opacity: 1;
+    top: 1rem;
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    opacity: 1;
+    top: 0px;
+  }
+  100% {
+    opacity: 0;
+    top: -100px;
+  }
+}
+
+.appear-enter-active {
+  animation: fade-in 0.6s;
+}
+
+.appear-leave-active {
+  animation: fade-out 1.3s;
+}
+
+.slide-enter-active {
+  animation: slide-in 0.6s;
+}
+
+.slide-leave-active {
+  animation: slide-out 1.2s;
 }
