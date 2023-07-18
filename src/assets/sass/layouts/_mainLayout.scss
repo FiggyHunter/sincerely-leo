@@ -1,0 +1,16 @@
+@use "../shared" as *;
+
+body {
+  background-color: $colors-body-color;
+}
+
+.limiter {
+  width: 90%;
+  @media screen and (min-width: helpers-pxToRem(600px)) {
+    width: 85%;
+  }
+  @media screen and (min-width: helpers-pxToRem(1200px)) {
+    width: 65%;
+  }
+  margin: 0 auto;
+}
