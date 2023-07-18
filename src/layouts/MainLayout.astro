@@ -1,0 +1,19 @@
+---
+import MainNavigation from "@/components/navigation/MainNavigation.vue";
+
+// props go here, and flow into the main head
+// don't forget to render the main head inside of the mainlayout above the body!
+---
+
+<html lang="en">
+  <!-- MainHead {title} {desc} -->
+
+  <body class="limiter">
+    <MainNavigation client:only />
+    <slot />
+  </body>
+</html>
+
+<style lang="scss">
+  @use "../assets/sass/layouts/_mainLayout.scss" as *;
+</style>
