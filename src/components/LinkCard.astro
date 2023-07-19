@@ -1,0 +1,17 @@
+---
+interface Props {
+  link?: String;
+  image?: String;
+  text?: String;
+}
+
+const { link, image, text } = Astro.props;
+---
+
+<a style=`background-image: url(${image})` class="link-card" href={`/${link}`}
+  >{text}</a
+>
+
+<style lang="scss">
+  @use "@/assets/sass/components/_LinkCard.scss";
+</style>
