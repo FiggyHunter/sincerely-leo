@@ -1,13 +1,10 @@
 ---
-const today = new Date();
+const currentYear = new Date().getFullYear();
 ---
 
 <footer>
-  &copy; {today.getFullYear()} Leonardo R. All rights reserved.
+  &copy; {currentYear} Leonardo R. All rights reserved.
 </footer>
-<style>
-  footer {
-    padding: 25px;
-    text-align: center;
-  }
+<style lang="scss">
+  @use "@/assets/sass/layouts/_footer.scss";
 </style>
