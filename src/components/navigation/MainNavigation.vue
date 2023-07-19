@@ -8,8 +8,8 @@
           <button @click="openMenu" aria-label="open menu">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="17"
-              height="15"
+              width="22"
+              height="22"
               viewBox="0 0 17 15"
               fill="none"
               :class="[`menu`, { 'menu--active': menuVisible }]"
@@ -41,16 +41,34 @@
       </div>
     </Transition>
   </header>
+  <Transition name="ease-in" mode="in-out">
+    <div @click="goTop()" v-if="goTopVisible" class="div">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 16 34"
+        fill="none"
+        class="arrow"
+        height="30"
+        width="30"
+      >
+        <path
+          d="M8.91962 0.297456C8.53164 -0.0955988 7.89849 -0.0997131 7.50544 0.288267L1.10026 6.61074C0.707205 6.99872 0.703091 7.63187 1.09107 8.02492C1.47905 8.41798 2.1122 8.42209 2.50525 8.03411L8.19875 2.41414L13.8187 8.10763C14.2067 8.50068 14.8399 8.5048 15.2329 8.11682C15.626 7.72884 15.6301 7.09569 15.2421 6.70264L8.91962 0.297456ZM8.99998 33.0058L9.20791 1.00645L7.20796 0.993454L7.00002 32.9928L8.99998 33.0058Z"
+        />
+      </svg>
+    </div>
+  </Transition>
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref, watch } from "vue";
 import NavigationDarkModeButtonVue from "@/components/navigation/DarkModeButton.vue";
+
 const aboutActive = ref(false);
 const categoryActive = ref(false);
 const postsActive = ref(false);
 const windowWidth = ref(0);
 const mainNavigationVisible = ref(true);
+const goTopVisible = ref(false);
 
 watch(windowWidth, () => {
   if (windowWidth.value >= 900) {
@@ -60,6 +78,11 @@ watch(windowWidth, () => {
 const menuVisible = ref(false);
 const openMenu = function () {
   menuVisible.value = !menuVisible.value;
+};
+
+const goTop = () => {
+  document.documentElement.scrollTop = 0;
+  console.log("call");
 };
 
 onMounted(() => {
@@ -82,9 +105,16 @@ onMounted(() => {
       if (window.scrollY < lastScroll) {
         mainNavigationVisible.value = true;
         lastScroll = window.scrollY;
-      } else {
+      }
+      if (window.scrollY > lastScroll) {
         mainNavigationVisible.value = false;
         lastScroll = window.scrollY;
+      }
+      if (!goTopVisible.value && window.scrollY > 50) {
+        goTopVisible.value = true;
+      }
+      if (goTopVisible.value && window.scrollY < 50) {
+        goTopVisible.value = false;
       }
     }
   });
