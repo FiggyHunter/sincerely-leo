@@ -1,0 +1,37 @@
+---
+import Labels from "./Labels.astro";
+interface Props {
+  post: any;
+  categories: any;
+}
+
+const { post, categories } = Astro.props;
+console.log(post);
+const image = "https://picsum.photos/400/500";
+const text = post.attributes.Title;
+---
+
+<article class="post">
+  <img class="post__image" src=`${image}` alt="blog post image" />
+  <div class="post__details">
+    {
+      categories.map((category) => (
+        <Labels text={category} theme={"universal"} />
+      ))
+    }
+
+    <Labels
+      id="date"
+      text={new Date(post.attributes.publishedAt).toLocaleDateString()}
+      theme={"universal-date"}
+    />
+    <div class="post__headline">
+      <h1>{text}</h1>
+      <p>See post >></p>
+    </div>
+  </div>
+
+  <style lang="scss">
+    @use "@/assets/sass/components/_PostCard.scss";
+  </style>
+</article>
