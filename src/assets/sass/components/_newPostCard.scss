@@ -1,0 +1,68 @@
+@use "../shared" as *;
+
+.new {
+  margin-bottom: 2rem;
+  .image {
+    position: relative;
+    display: grid;
+  }
+  display: grid;
+  position: relative;
+  &__image {
+    position: relative;
+    max-height: 400px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1rem 1rem 0rem 0rem;
+    overflow: hidden;
+  }
+  &__labels {
+    margin-top: 0.7rem;
+    position: absolute;
+    width: 90%;
+    display: flex;
+    justify-self: center;
+    justify-content: space-between;
+  }
+  &__date {
+    position: relative;
+  }
+  &__categories {
+    flex-wrap: wrap;
+    justify-content: end;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  &__description {
+    margin-top: 1rem;
+
+    display: grid;
+    grid-template-columns: 10fr 1fr;
+    gap: 0.5rem;
+  }
+
+  &__title {
+    font-family: $fonts-grand-medium;
+    color: $colors-nav-background;
+    transition: color 0.4s;
+    .bold-accent {
+      color: $colors-accent-color;
+      font-family: $fonts-grand-extra-bold;
+    }
+    &:hover {
+      color: $colors-accent-color;
+    }
+    align-self: center;
+  }
+  &__arrow {
+    place-self: center end;
+    background-color: $colors-nav-background;
+    padding: 0.6rem;
+    border-radius: 100rem;
+  }
+}
+.arrow-svg {
+  fill: $colors-body-color;
+}
