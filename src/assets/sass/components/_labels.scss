@@ -1,0 +1,29 @@
+@use "../_shared.scss" as *;
+
+.label {
+  font-family: $fonts-grand-medium;
+  padding: 0.2rem 1rem;
+  font-size: clamp(0.7rem, 0.7rem + 0.5vw, 1.7rem);
+  border-radius: 5rem;
+  position: relative;
+
+  &__white {
+    color: black;
+    background-color: white;
+  }
+  &__black {
+    color: white;
+    background-color: black;
+  }
+  &__universal {
+    background-color: $colors-nav-background;
+    color: $colors-nav-text;
+  }
+  &__universal-date {
+    color: $colors-nav-background;
+  }
+  p {
+    position: relative;
+    top: 0.12rem;
+  }
+}
