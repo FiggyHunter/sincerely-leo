@@ -1,0 +1,25 @@
+---
+interface Props {
+  text: String;
+  theme: "black" | "white" | "universal" | "universal-date";
+  id?: String;
+}
+
+const { id, text, theme } = Astro.props;
+---
+
+<div
+  id={id}
+  class:list={[
+    `label`,
+    { label__black: theme === "black" },
+    { label__white: theme === "white" },
+    { label__universal: theme === "universal" },
+  ]}
+>
+  <p>{text}</p>
+</div>
+
+<style lang="scss">
+  @use "@/assets/sass/components/_labels.scss";
+</style>
