@@ -1,4 +1,6 @@
 ---
+import BaseHead from "@/components/BaseHead.astro";
+import Footer from "@/components/Footer.astro";
 import MainNavigation from "@/components/navigation/MainNavigation.vue";
 
 // props go here, and flow into the main head
@@ -7,13 +9,14 @@ import MainNavigation from "@/components/navigation/MainNavigation.vue";
 
 <html lang="en">
   <!-- MainHead {title} {desc} -->
-
+  <BaseHead title="test" />
   <body class="limiter">
     <MainNavigation client:only />
     <slot />
+    <style lang="scss">
+      @use "../assets/sass/_shared.scss" as *;
+      @use "../assets/sass/layouts/_mainLayout.scss" as *;
+    </style>
+    <Footer />
   </body>
 </html>
-
-<style lang="scss">
-  @use "../assets/sass/layouts/_mainLayout.scss" as *;
-</style>
