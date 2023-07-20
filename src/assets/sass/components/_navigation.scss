@@ -114,7 +114,7 @@ header {
 
 .mobile-menu {
   display: grid;
-  z-index: 10;
+  z-index: 50;
   position: fixed;
   top: 0;
   left: 0;
@@ -140,6 +140,35 @@ header {
       max-width: 300px;
       background-color: black;
     }
+  }
+}
+
+.div {
+  &:hover {
+    cursor: pointer;
+  }
+  display: grid;
+  place-items: center;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  background-color: $colors-nav-background;
+  .arrow {
+    width: 25%;
+    height: 25%;
+
+    height: 1.75rem;
+    animation: up-down 5s ease infinite;
+    path {
+      fill: $colors-nav-text;
+    }
+  }
+  @media screen and (min-width: helpers-pxToRem(900px)) {
+    bottom: 4rem;
+    right: 5rem;
   }
 }
 
@@ -198,6 +227,48 @@ header {
   }
 }
 
+@keyframes up-down {
+  0% {
+    transform: translateY(0.3rem);
+  }
+
+  25% {
+    transform: translateY(-0.3rem);
+  }
+
+  50% {
+    transform: translateY(0.3rem);
+  }
+
+  75% {
+    transform: translateY(-0.3rem);
+  }
+
+  100% {
+    transform: translateY(0.3rem);
+  }
+}
+
+@keyframes ease-in-arrow {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes ease-out-arrow {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 .appear-enter-active {
   animation: fade-in 0.6s;
 }
@@ -212,4 +283,12 @@ header {
 
 .slide-leave-active {
   animation: slide-out 1.2s;
+}
+
+.ease-in-enter-active {
+  animation: ease-in-arrow 0.5s;
+}
+
+.ease-in-leave-active {
+  animation: ease-out-arrow 0.5s;
 }
