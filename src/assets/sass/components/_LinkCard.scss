@@ -18,6 +18,15 @@
   place-content: end start;
   background-color: black;
   width: 70%;
+  @media screen and (min-width: helpers-pxToRem(700px)) {
+    width: 100%;
+    min-height: 225px;
+    max-height: 225px;
+  }
+  @media screen and (min-width: helpers-pxToRem(1500px)) {
+    min-height: 275px;
+    max-height: 275px;
+  }
   justify-self: center;
   min-height: 175px;
   max-height: 175px;
