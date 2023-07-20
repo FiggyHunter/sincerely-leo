@@ -7,8 +7,8 @@ import PostCard from "@/components/PostCard.astro";
 
 // api
 import { getPosts } from "@/api/posts/getPosts.ts";
-import { getLatestPost, sortPosts } from "@/api/posts/sortedPosts";
-
+import { getLatestPost } from "@/api/posts/sortedPosts";
+import { getCategoriesFromPost } from "@/api/posts/getPostCategories";
 // Fetch posts
 const posts = await getPosts();
 
@@ -16,40 +16,50 @@ const posts = await getPosts();
 const latestPost = await getLatestPost(posts, { sort: true });
 
 // Calculate categories
-const categories = latestPost.attributes.categories.data.map(
+const latestCategories = latestPost.attributes.categories.data.map(
   (category) => category.attributes.category_name
 );
 ---
 
 <html>
-  <div class="main-text">
-    <h1>Welcome to my blog!</h1>
-    <a class="heading__link" href=`/blog`>See all posts <span>>></span></a>
-  </div>
   <MainLayout>
     <main class="hero">
-      <div class="new-post">
-        <NewPostCard post={latestPost} categories={categories} />
+      <div class="main-text">
+        <h1>Welcome to my blog!</h1>
+        <a class="heading__link" href=`/blog`>See all posts <span>>></span></a>
       </div>
-      <LinkCard
-        text={`My Photography >>`}
-        image={"https://www.k9ofmine.com/wp-content/uploads/2018/07/beautiful-dog-breed-list.jpg"}
-      />
-      <LinkCard
-        text={`About me >>`}
-        image={`https://wallpapers.com/images/featured/cute-dog-brtwwfga72pilv0j.jpg`}
-      />
-      <h3>Recent blog posts</h3>
+      <div class="new-post">
+        <NewPostCard post={latestPost} categories={latestCategories} />
+      </div>
+      <div class="card-1">
+        <LinkCard
+          text={`My Photography >>`}
+          image={"https://www.k9ofmine.com/wp-content/uploads/2018/07/beautiful-dog-breed-list.jpg"}
+        />
+      </div>
+      <div class="card-2">
+        <LinkCard
+          text={`About me >>`}
+          image={`https://wallpapers.com/images/featured/cute-dog-brtwwfga72pilv0j.jpg`}
+        />
+      </div>
+      <h3 class="headline">Recent blog posts</h3>
       <div class="recent-posts">
-        <PostCard post={latestPost} categories={categories} />
-        <PostCard post={latestPost} categories={categories} />
+        {
+          posts.map((post) => (
+            <PostCard
+              post={post}
+              categories={getCategoriesFromPost(post)}
+              image={"https://picsum.photos/400/500"}
+            />
+          ))
+        }
       </div>
     </main>
 
     <div class="quote-corner">
       <h4>Quote Corner</h4>
     </div>
-    <Footer />
     <style>
       h1 {
         font-size: 2rem;
@@ -60,6 +70,4 @@ const categories = latestPost.attributes.categories.data.map(
       @use "../assets/sass/layouts/_homePage.scss";
     </style>
   </MainLayout>
-
-
 </html>
