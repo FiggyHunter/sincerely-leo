@@ -2,9 +2,25 @@
 
 .post {
   &__image {
+    transition: all 0.3s;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.04);
+    }
     max-height: 200px;
     width: 100%;
     border-radius: 2rem;
+    @media screen and (min-width: helpers-pxToRem(700px)) {
+      max-height: 300px;
+      width: 100%;
+      justify-self: center;
+    }
+  }
+  @media screen and (min-width: helpers-pxToRem(700px)) {
+    width: 60%;
+  }
+  @media screen and (min-width: helpers-pxToRem(1500px)) {
+    width: 93%;
   }
   gap: 0.5rem;
   width: 70%;
@@ -19,12 +35,34 @@
     flex-wrap: wrap;
   }
   &__headline {
+    margin-top: 0.5rem;
+    width: 100%;
     display: grid;
     grid-template-rows: auto max-content;
     font-family: $fonts-grand-medium;
-    p {
-      justify-self: center;
+    color: $colors-nav-background;
+    justify-items: start;
+    text-align: center;
+    h2 {
+      font-size: 1rem;
+      transition: color 0.3s;
+      &:hover {
+        cursor: pointer;
+        color: $colors-accent-color;
+      }
+    }
+    a {
+      transition: color 0.3s;
+      &:hover {
+        cursor: pointer;
+        color: $colors-accent-color;
+      }
+      font-size: 0.9rem;
+      width: 100%;
+      margin-top: 0.5rem;
+      text-align: center;
       font-family: $fonts-grand-black;
+      color: $colors-nav-background;
     }
   }
   #date {
