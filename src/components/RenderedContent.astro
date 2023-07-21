@@ -1,34 +1,66 @@
 ---
 import { marked } from "marked";
 import { gfmHeadingId } from "marked-gfm-heading-id";
+import { getCategoriesFromPost } from "@/api/posts/getPostCategories";
 
 marked
   .use({
     mangle: false,
     headerIds: true,
+    gfm: true,
   })
   .use(gfmHeadingId({ prefix: "" }));
 import Header from "./Header.astro";
+import Labels from "./Labels.astro";
 
 // TO:DO need a interface for props
 
 const { post } = Astro.props;
+const categories = getCategoriesFromPost(post);
 
 const content = marked.parse(post.attributes.Content);
 ---
 
-<Header />
-<Fragment set:html={content} />
+<head>
+  <link rel="stylesheet" href="../assets/css/prism.css" />
+</head>
 
-<style is:global>
-  figure {
-    justify-self: center;
-  }
-  h2 {
-    color: red;
-  }
+<div class="blog-post__image-ctr">
+  <img
+    class="blog-post__image"
+    src="https://media.discordapp.net/attachments/1125381201557983274/1131995334969671730/kat.png?width=704&height=663"
+  />
+  <div class="blog-post__overlay"></div>
+</div>
 
-  img {
-    justify-self: center;
-  }
+<div class="blog-post__limiter">
+  <div class="blog-post__description">
+    <div class="labels">
+      {
+        categories.map((category) => (
+          <Labels text={category} theme={"universal"} />
+        ))
+      }
+    </div>
+    <h1 class="title">
+      {post.attributes.Title}
+    </h1>
+
+    <div class="date">
+      {post.attributes.date_posted}
+    </div>
+  </div>
+  <div class="blog-grid">
+    <div class=""></div>
+    <div class="blog-post__content">
+      <Fragment set:html={content} />
+    </div>
+    <div class=""></div>
+  </div>
+</div>
+
+<style lang="scss">
+  @use "@/assets/sass/base/prism.scss";
 </style>
+
+<script></script>
