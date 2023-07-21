@@ -1,8 +1,13 @@
 @use "../shared" as *;
 .card-1 {
+  display: grid;
   grid-area: card-1;
+  justify-items: center;
+  width: 100%;
 }
 .card-2 {
+  display: grid;
+  justify-items: center;
   grid-area: card-2;
 }
 .main-text {
