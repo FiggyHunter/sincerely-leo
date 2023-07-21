@@ -124,6 +124,78 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Montserrat Regular";
+  src: url("/fonts/Montserrat-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat Italic";
+  src: url("/fonts/Montserrat-Italic.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat Medium";
+  src: url("/fonts/Montserrat-Medium.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat Medium Italic";
+  src: url("/fonts/Montserrat-MediumItalic.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat SemiBold";
+  src: url("/fonts/Montserrat-SemiBold.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat SemiBold Italic";
+  src: url("/fonts/Montserrat-SemiBoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat Bold";
+  src: url("/fonts/Montserrat-Bold.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat Bold Italic";
+  src: url("/fonts/Montserrat-BoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat ExtraBold";
+  src: url("/fonts/Montserrat-ExtraBold.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat ExtraBold Italic";
+  src: url("/fonts/Montserrat-ExtraBoldItalic.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat Black";
+  src: url("/fonts/Montserrat-Black.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat Black Italic";
+  src: url("/fonts/Montserrat-BlackItalic.ttf") format("truetype");
+  font-display: swap;
+}
+
 /* Font variables */
 
 $grand-regular: "Grandstander Regular", sans-serif;
@@ -144,3 +216,16 @@ $grand-extra-bold: "Grandstander ExtraBold", sans-serif;
 $grand-extra-bold-italic: "Grandstander ExtraBold Italic", sans-serif;
 $grand-black: "Grandstander Black", sans-serif;
 $grand-black-italic: "Grandstander Black Italic", sans-serif;
+
+$monty-regular: "Montserrat Regular", sans-serif;
+$monty-italic: "Montserrat Italic", sans-serif;
+$monty-medium: "Montserrat Medium", sans-serif;
+$monty-medium-italic: "Montserrat Medium Italic", sans-serif;
+$monty-semibold: "Montserrat SemiBold", sans-serif;
+$monty-semibold-italic: "Montserrat SemiBold Italic", sans-serif;
+$monty-bold: "Montserrat Bold", sans-serif;
+$monty-bold-italic: "Montserrat Bold Italic", sans-serif;
+$monty-extra-bold: "Montserrat ExtraBold", sans-serif;
+$monty-extra-bold-italic: "Montserrat ExtraBold Italic", sans-serif;
+$monty-black: "Montserrat Black", sans-serif;
+$monty-black-italic: "Montserrat Black Italic", sans-serif;
