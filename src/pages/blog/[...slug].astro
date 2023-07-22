@@ -1,12 +1,14 @@
 ---
 import { slugify } from "@/utils/format";
 import RenderedContent from "../../components/RenderedContent.astro";
-import BlogPost from "../../layouts/BlogPost.astro";
+import MainLayout from "@/layouts/MainLayout.astro";
+import BaseHead from "@/components/BaseHead.astro";
+import BlogPost from "@/layouts/BlogPost.astro";
+import { getPosts } from "@/api/posts/getPosts.ts";
 
 export async function getStaticPaths() {
   //Fetching posts
-  const res = await fetch("http://localhost:1337/api/posts");
-  const { data: posts } = await res.json();
+  const posts = await getPosts();
 
   //generating
   return posts.map((post) => ({
@@ -18,17 +20,16 @@ export async function getStaticPaths() {
 const post = Astro.props;
 ---
 
-<article class="test">
-  <div class=""></div>
-  <article>
-    <RenderedContent {post} />
-  </article>
-  <div class=""></div>
-</article>
+<BlogPost>
+  <RenderedContent {post} />
+</BlogPost>
 
-<style lang="scss">
-  .test {
+<style is:global lang="scss">
+  .post-container {
     display: grid;
-    grid-template-columns: 5fr 3fr 5fr;
+    margin: 0;
+    padding: 0;
   }
 </style>
+
+<script></script>
