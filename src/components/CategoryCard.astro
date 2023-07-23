@@ -1,0 +1,13 @@
+---
+import "@/assets/sass/components/_categoryCard.scss";
+
+const { categoryName, categoryImage, categoryLink } = Astro.props;
+---
+
+<article class="category">
+  <a class="category-box" href={categoryLink}>
+    <img class="category__img" src={categoryImage} />
+    <h3 class="category__headline">{categoryName}</h3>
+  </a>
+  <a class="link" href="">See posts >></a>
+</article>
