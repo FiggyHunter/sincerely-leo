@@ -1,51 +1,24 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
+import BaseHead from "../components/BaseHead.astro";
+import MainNavigation from "@/components/navigation/MainNavigation.vue";
+import Footer from "@/components/Footer.astro";
+import "@/assets/sass/layouts/_blogLayout.scss";
 
-type Props = CollectionEntry<'blog'>['data'];
-
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+// const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			.title {
-				font-size: 2em;
-				margin: 0.25em 0 0;
-			}
-			hr {
-				border-top: 1px solid #ddd;
-				margin: 1rem 0;
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
-	</head>
+  <BaseHead title="test" />
+  <body class="blog">
+    <MainNavigation client:only />
+    <main class="blog-post">
+      <slot />
+    </main>
 
-	<body>
-		<Header />
-		<main>
-			<article>
-				{heroImage && <img width={720} height={360} src={heroImage} alt="" />}
-				<h1 class="title">{title}</h1>
-				<FormattedDate date={pubDate} />
-				{
-					updatedDate && (
-						<div class="last-updated-on">
-							Last updated on <FormattedDate date={updatedDate} />
-						</div>
-					)
-				}
-				<hr />
-				<slot />
-			</article>
-		</main>
-		<Footer />
-	</body>
+    <style lang="scss">
+      @use "../assets/sass/_shared.scss" as *;
+      @use "../assets/sass/layouts/_blogLayout.scss" as *;
+    </style>
+    <Footer />
+  </body>
 </html>
