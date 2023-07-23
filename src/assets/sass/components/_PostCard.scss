@@ -7,11 +7,16 @@
       cursor: pointer;
       transform: scale(1.04);
     }
-    max-height: 200px;
+    max-height: helpers-pxToRem(300px);
     width: 100%;
     border-radius: 2rem;
     @media screen and (min-width: helpers-pxToRem(700px)) {
-      max-height: 300px;
+      width: 100%;
+      justify-self: center;
+    }
+
+    @media screen and (min-width: helpers-pxToRem(1500px)) {
+      max-height: helpers-pxToRem(350px);
       width: 100%;
       justify-self: center;
     }
@@ -20,17 +25,17 @@
     width: 60%;
   }
   @media screen and (min-width: helpers-pxToRem(1500px)) {
-    width: 93%;
+    width: 60%;
   }
   gap: 0.5rem;
   width: 70%;
   margin-bottom: 2rem;
   justify-self: center;
   display: grid;
-  grid-template-rows: max-content auto auto;
+  grid-template-rows: max-content max-content max-content max-content;
   &__details {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 0.3rem;
     flex-wrap: wrap;
   }
@@ -43,8 +48,10 @@
     color: $colors-nav-background;
     justify-items: start;
     text-align: center;
+
     h2 {
-      font-size: 1rem;
+      font-family: $fonts-monty-semibold;
+      font-size: clamp(1.1rem, 1rem + 1vw, 1.3rem);
       transition: color 0.3s;
       &:hover {
         cursor: pointer;
@@ -57,15 +64,16 @@
         cursor: pointer;
         color: $colors-accent-color;
       }
-      font-size: 0.9rem;
+      font-size: clamp(0.9rem, 1rem + 1vw, 1.5rem);
       width: 100%;
-      margin-top: 0.5rem;
+      margin-top: 1rem;
       text-align: center;
       font-family: $fonts-grand-black;
       color: $colors-nav-background;
     }
   }
   #date {
-    margin-left: auto;
+    margin: 0.5rem 0;
+    justify-self: center;
   }
 }

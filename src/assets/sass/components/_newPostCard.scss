@@ -1,5 +1,12 @@
 @use "../shared" as *;
 
+.new-post {
+  margin: 2rem 0;
+  @media screen and (min-width: helpers-pxToRem(1500px)) {
+    margin: 0;
+  }
+}
+
 .new {
   .image {
     position: relative;
@@ -7,6 +14,7 @@
   }
   display: grid;
   position: relative;
+
   &__image {
     position: relative;
     max-height: 400px;
