@@ -2,7 +2,7 @@
 
 .blog-post {
   h1 {
-    font-size: clamp(2rem, 2rem + 1vw, 3rem);
+    font-size: clamp(1rem, 1rem + 1vw, 3rem);
     font-family: $fonts-monty-extra-bold;
   }
   &__content {
@@ -10,9 +10,9 @@
       display: grid;
       text-wrap: wrap;
       max-width: 100%;
+      overflow: hidden;
       text-align: center;
-      code {
-      }
+      font-size: clamp(0.5rem, 0.5rem + 1vw, 1rem);
     }
     margin-bottom: 4rem;
     p {
@@ -22,17 +22,17 @@
     h2 {
       font-family: $fonts-monty-extra-bold;
       font-size: clamp(1.75rem, 1.75rem + 1vw, 2.25rem);
-      margin: 1rem 0;
+      margin: 3rem 0 1.5rem 0rem;
     }
     h3 {
       font-family: $fonts-monty-semibold;
       font-size: clamp(1.6rem, 1.6rem + 1vw, 2rem);
-      margin: 1.5rem 0;
+      margin: 3rem 0 1.5rem 0rem;
     }
     h4 {
       font-size: 1.5rem;
       font-family: $fonts-monty-bold;
-      margin: 1rem 0;
+      margin: 2rem 0 1.5rem 0rem;
     }
     figure {
       margin: 2rem 0rem;
@@ -52,7 +52,7 @@
 
   display: grid;
   grid-template-columns: 1fr;
-
+  justify-content: center;
   width: 100%;
   margin: 0 auto;
   position: relative;
@@ -66,8 +66,10 @@
   }
   &__image {
     width: 100%;
+    max-width: 100%;
     max-height: 800px;
-    object-fit: cover;
+    object-position: center;
+    object-fit: fill;
   }
   &__image-ctr {
     display: grid;
@@ -102,10 +104,8 @@
 }
 
 .blog {
-  position: relative;
-  top: 0;
-  margin: 0;
   z-index: 1000;
+  position: relative;
   height: fit-content;
 }
 
