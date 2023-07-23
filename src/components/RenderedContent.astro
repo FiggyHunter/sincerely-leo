@@ -2,6 +2,7 @@
 import { marked } from "marked";
 import { gfmHeadingId } from "marked-gfm-heading-id";
 import { getCategoriesFromPost } from "@/api/posts/getPostCategories";
+import "@/assets/sass/base/prism.scss";
 
 marked
   .use({
@@ -20,10 +21,6 @@ const categories = getCategoriesFromPost(post);
 
 const content = marked.parse(post.attributes.Content);
 ---
-
-<head>
-  <link rel="stylesheet" href="../assets/css/prism.css" />
-</head>
 
 <div class="blog-post__image-ctr">
   <img
@@ -58,9 +55,5 @@ const content = marked.parse(post.attributes.Content);
     <div class=""></div>
   </div>
 </div>
-
-<style lang="scss">
-  @use "@/assets/sass/base/prism.scss";
-</style>
 
 <script></script>
