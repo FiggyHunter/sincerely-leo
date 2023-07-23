@@ -3,16 +3,17 @@ import Labels from "./Labels.astro";
 interface Props {
   post: any;
   categories: any;
+  image: string;
 }
 
-const { post, categories } = Astro.props;
-console.log(post);
-const image = "https://picsum.photos/400/500";
+const { post, categories, image } = Astro.props;
 const text = post.attributes.Title;
 ---
 
 <article class="post">
-  <img class="post__image" src=`${image}` alt="blog post image" />
+  <a href=`/blog/${post.attributes.Slug}`>
+    <img class="post__image" src=`${image}` alt="blog post image" />
+  </a>
   <div class="post__details">
     {
       categories.map((category) => (
@@ -20,14 +21,15 @@ const text = post.attributes.Title;
       ))
     }
 
-    <Labels
-      id="date"
-      text={new Date(post.attributes.publishedAt).toLocaleDateString()}
-      theme={"universal-date"}
-    />
     <div class="post__headline">
-      <h1>{text}</h1>
-      <p>See post >></p>
+      <Labels
+        id="date"
+        text={new Date(post.attributes.publishedAt).toLocaleDateString()}
+        theme={"universal-date"}
+      />
+      <a href=`/blog/${post.attributes.Slug}`> <h2>{text}</h2></a>
+
+      <a href=`/blog/${post.attributes.Slug}`>See post >></a>
     </div>
   </div>
 
