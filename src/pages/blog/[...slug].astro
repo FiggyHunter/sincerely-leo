@@ -1,8 +1,7 @@
 ---
 import { slugify } from "@/utils/format";
 import RenderedContent from "../../components/RenderedContent.astro";
-import MainLayout from "@/layouts/MainLayout.astro";
-import BaseHead from "@/components/BaseHead.astro";
+
 import BlogPost from "@/layouts/BlogPost.astro";
 import { getPosts } from "@/api/posts/getPosts.ts";
 
@@ -23,13 +22,3 @@ const post = Astro.props;
 <BlogPost>
   <RenderedContent {post} />
 </BlogPost>
-
-<style is:global lang="scss">
-  .post-container {
-    display: grid;
-    margin: 0;
-    padding: 0;
-  }
-</style>
-
-<script></script>
