@@ -1,0 +1,11 @@
+@use "../shared" as *;
+
+.category-limiter {
+  width: 80%;
+  margin: 0 auto;
+}
+
+body {
+  position: relative;
+  background-color: $colors-body-color;
+}
