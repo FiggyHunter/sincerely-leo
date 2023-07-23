@@ -10,13 +10,14 @@ import MainNavigation from "@/components/navigation/MainNavigation.vue";
 <html lang="en">
   <!-- MainHead {title} {desc} -->
   <BaseHead title="test" />
-  <body class="limiter">
+  <body>
     <MainNavigation client:only />
-    <slot />
+    <div class="limiter">
+      <slot />
+      <Footer />
+    </div>
     <style lang="scss">
-      @use "../assets/sass/_shared.scss" as *;
       @use "../assets/sass/layouts/_mainLayout.scss" as *;
     </style>
-    <Footer />
   </body>
 </html>
