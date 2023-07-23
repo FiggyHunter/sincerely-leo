@@ -9,6 +9,10 @@ import PostCard from "@/components/PostCard.astro";
 import { getPosts } from "@/api/posts/getPosts.ts";
 import { getLatestPost } from "@/api/posts/sortedPosts";
 import { getCategoriesFromPost } from "@/api/posts/getPostCategories";
+import { getQuotes } from "@/api/quotes/getQuotes";
+import { getRandomQuote } from "@/api/quotes/getRandomQuote";
+
+import "@/assets/sass/pages/_homePage.scss";
 // Fetch posts
 const posts = await getPosts();
 
@@ -19,6 +23,8 @@ const latestPost = await getLatestPost(posts, { sort: true });
 const latestCategories = latestPost.attributes.categories.data.map(
   (category) => category.attributes.category_name
 );
+
+const Quote = await getRandomQuote(getQuotes());
 ---
 
 <html>
@@ -59,15 +65,13 @@ const latestCategories = latestPost.attributes.categories.data.map(
 
     <div class="quote-corner">
       <h4>Quote Corner</h4>
+      <h4 class="quote-corner__quote">"{Quote.quote}"</h4>
+      <h5 class="quote-corner__author">- {Quote.author}</h5>
     </div>
     <style>
       h1 {
         font-size: 2rem;
       }
-    </style>
-
-    <style lang="scss">
-      @use "../assets/sass/layouts/_homePage.scss";
     </style>
   </MainLayout>
 </html>
