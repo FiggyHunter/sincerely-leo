@@ -1,0 +1,123 @@
+@use "../shared" as *;
+.card-1 {
+  display: grid;
+  grid-area: card-1;
+  justify-items: center;
+  width: 100%;
+}
+.card-2 {
+  display: grid;
+  justify-items: center;
+  grid-area: card-2;
+  width: 100%;
+}
+.main-text {
+  grid-area: main;
+  margin-bottom: 0.5rem;
+
+  h1 {
+    font-family: $fonts-grand-bold-italic;
+    color: $colors-nav-background;
+    font-size: clamp(1.6rem, 1.6rem + 2vw, 4.5rem);
+    text-align: center;
+  }
+  .heading__link {
+    font-size: 1rem;
+    display: block;
+    color: $colors-accent-color;
+    font-family: $fonts-grand-medium;
+    display: block;
+    margin-top: 0.3rem;
+    text-align: center;
+    span {
+      position: relative;
+      top: 0.06rem;
+    }
+    @media screen and (min-width: helpers-pxToRem(1500px)) {
+      margin-top: 1rem;
+      text-align: end;
+    }
+  }
+}
+
+.new-post {
+  grid-area: new;
+}
+
+.hero {
+  margin-top: clamp(6rem, 6rem + 3vw, 10rem);
+  display: grid;
+  grid-template-areas:
+    "main"
+    "new"
+    "card-1"
+    "card-2"
+    "recent"
+    "recent-posts";
+  grid-template-columns: 1fr;
+  @media screen and (min-width: helpers-pxToRem(700px)) {
+    grid-template-areas:
+      "main main"
+      "new new"
+      "card-1 card-2"
+      "recent recent"
+      "recent-posts recent-posts";
+    grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (min-width: helpers-pxToRem(1500px)) {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.25fr 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+    grid-template-areas:
+      "main main card-1"
+      "new new card-1"
+      "new new card-2"
+      "new new card-2"
+      "recent recent recent"
+      "recent-posts recent-posts recent-posts";
+  }
+  gap: 1rem;
+  h3 {
+    font-family: $fonts-grand-bold;
+    color: $colors-nav-background;
+    font-size: clamp(1.5rem, 1.5rem + 2vw, 3rem);
+    justify-self: center;
+    text-align: center;
+    margin: clamp(3rem, 3rem + 1vw, 6rem) 0rem;
+
+    grid-area: recent;
+  }
+}
+
+.recent-posts {
+  @media screen and (min-width: helpers-pxToRem(1500px)) {
+    grid-template-columns: 1fr 1fr;
+  }
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-area: recent-posts;
+}
+
+.quote-corner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  padding: clamp(8rem, 8rem + 1vw, 12rem) 0rem clamp(10rem, 10rem + 2vw, 14rem)
+    0rem;
+  color: $colors-nav-background;
+  font-family: $fonts-monty-extra-bold;
+  font-size: clamp(1.6rem, 1.6rem + 1vw, 2.7rem);
+  &__quote {
+    font-family: $fonts-monty-medium-italic;
+    width: 70%;
+
+    font-size: clamp(1.4rem, 1.4rem + 1vw, 2.2rem);
+    margin: 2rem 0;
+  }
+  &__author {
+    font-family: $fonts-monty-semibold-italic;
+    font-size: clamp(1.1rem, 1.1rem + 1vw, 1.6rem);
+  }
+}
