@@ -17,7 +17,7 @@
   display: grid;
   place-content: end start;
   background-color: black;
-  width: 70%;
+  width: 80%;
   @media screen and (min-width: helpers-pxToRem(700px)) {
     width: 100%;
     min-height: 225px;
@@ -37,4 +37,5 @@
   background-position: center center;
   background-size: cover;
   z-index: 10;
+  font-size: clamp(1rem, 1rem + 1vw, 2rem);
 }

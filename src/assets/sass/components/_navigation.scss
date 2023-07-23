@@ -3,7 +3,6 @@
 h1 {
   font-family: $fonts-grand-bold;
   color: $colors-primary-text;
-  // font-size: clamp(helpers-pxToRem(16px), 1rem + 1vw, helpers-pxToRem(32px));
 }
 
 header {
@@ -31,15 +30,15 @@ header {
     left: 7.5%;
   }
   @media screen and (min-width: helpers-pxToRem(1200px)) {
-    width: 65%;
-    left: 17.5%;
+    width: 80%;
+    left: 10%;
   }
 
   &__link {
     position: relative;
     top: 2.5px;
     font-family: $fonts-grand-black;
-    font-size: clamp(helpers-pxToRem(16px), 1rem + 1vw, helpers-pxToRem(24px));
+    font-size: clamp(1rem, 1rem + 1vw, 2.2rem);
     transition: color 0.3s;
     &:hover {
       color: $colors-accent-color;
@@ -69,7 +68,7 @@ header {
 
     @media screen and (min-width: helpers-pxToRem(900px)) {
       display: flex;
-      gap: 1rem;
+      gap: 1.5rem;
       font-family: $fonts-grand-medium;
       a {
         transition: color 0.3s;
@@ -79,11 +78,7 @@ header {
         position: relative;
         top: 3px;
         color: $colors-nav-text;
-        font-size: clamp(
-          helpers-pxToRem(16px),
-          1rem + 1vw,
-          helpers-pxToRem(24px)
-        );
+        font-size: clamp(1rem, 1rem + 1vw, 1.75rem);
       }
       .linkActive {
         color: $colors-accent-color;
@@ -134,11 +129,39 @@ header {
     grid-template-rows: 1fr 1fr 1fr;
     gap: 2rem;
     .box {
+      position: relative;
       height: 100%;
       max-height: 350px;
       width: 90%;
       max-width: 300px;
+      @media screen and (min-width: helpers-pxToRem(700px)) {
+        max-width: 500px;
+        width: 100%;
+      }
       background-color: black;
+      color: white;
+      font-family: $fonts-monty-bold;
+      display: grid;
+
+      border-radius: 2rem;
+      overflow: hidden;
+    }
+    img {
+      z-index: 1;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+    }
+    p {
+      display: grid;
+      place-items: end start;
+      padding: 0.7rem 1rem;
+      position: absolute;
+      z-index: 2;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.498);
+      font-size: 1.05rem;
     }
   }
 }
@@ -148,6 +171,7 @@ header {
     cursor: pointer;
   }
   display: grid;
+  z-index: 100;
   place-items: center;
   position: fixed;
   bottom: 1rem;
@@ -169,6 +193,9 @@ header {
   @media screen and (min-width: helpers-pxToRem(900px)) {
     bottom: 4rem;
     right: 5rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.75rem;
   }
 }
 
