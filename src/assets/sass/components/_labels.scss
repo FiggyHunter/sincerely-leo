@@ -1,9 +1,9 @@
 @use "../_shared.scss" as *;
 
 .label {
-  font-family: $fonts-grand-medium;
+  font-family: $fonts-monty-medium;
   padding: 0.2rem 1rem;
-  font-size: clamp(0.7rem, 0.7rem + 0.5vw, 1.7rem);
+  font-size: clamp(0.7rem, 0.7rem + 0.5vw, 1.2rem);
   border-radius: 5rem;
   position: relative;
 
@@ -21,9 +21,5 @@
   }
   &__universal__date {
     color: $colors-nav-background;
-  }
-  p {
-    position: relative;
-    top: 0.12rem;
   }
 }
