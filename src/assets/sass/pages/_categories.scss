@@ -1,0 +1,30 @@
+@use "../shared" as *;
+
+.categories {
+  h1 {
+    margin: 0;
+    grid-column: 1/-1;
+    font-family: $fonts-monty-bold;
+    text-align: center;
+    color: $colors-nav-background;
+    height: fit-content;
+    font-size: 2rem;
+    justify-self: center;
+  }
+  margin-top: 7rem;
+  display: grid;
+  justify-content: space-evenly;
+  grid-template-columns: repeat(auto-fit, 300px);
+  @media screen and (min-width: helpers-pxToRem(700px)) {
+    grid-template-columns: repeat(auto-fit, 300px);
+  }
+  @media screen and (min-width: helpers-pxToRem(1200px)) {
+    grid-template-rows: 2rem repeat(auto-fill, 400px);
+    grid-template-columns: repeat(auto-fit, 400px);
+  }
+  grid-template-rows: 2rem repeat(auto-fill, 300px);
+  height: 100vh;
+  width: 100%;
+  gap: 3rem;
+  column-gap: 3rem;
+}
