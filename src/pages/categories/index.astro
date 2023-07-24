@@ -1,0 +1,28 @@
+---
+import CategoryLayout from "@/layouts/CategoryLayout.astro";
+import CategoryCard from "@/components/CategoryCard.astro";
+
+import { getCategories } from "@/api/categories/getCategories";
+
+import "@/assets/sass/pages/_categories.scss";
+import { slugify } from "@/utils/format";
+
+const categories = await getCategories();
+---
+
+<html lang="en">
+  <CategoryLayout>
+    <main class="categories">
+      <h1>All Categories</h1>
+      {
+        categories.map((category) => (
+          <CategoryCard
+            categoryName={category.category_name}
+            categoryImage={category.category_image}
+            categoryLink={slugify(category.category_name)}
+          />
+        ))
+      }
+    </main>
+  </CategoryLayout>
+</html>
