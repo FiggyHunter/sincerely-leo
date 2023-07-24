@@ -1,0 +1,15 @@
+@use "../shared" as *;
+
+.all-posts {
+  padding: 5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  &__headline {
+    font-family: $fonts-monty-bold;
+    font-size: clamp(1.75rem, 1.75rem + 1vw, 2.4rem);
+    margin: clamp(2rem, 2rem + 1vw, 4rem) 0;
+    color: $colors-nav-background;
+  }
+}
