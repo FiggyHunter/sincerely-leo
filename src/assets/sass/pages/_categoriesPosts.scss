@@ -1,0 +1,38 @@
+@use "../shared" as *;
+
+.categories-posts {
+  padding: 5rem 0;
+  &__headline {
+    color: $colors-nav-background;
+    font-size: clamp(1.75rem, 1.75rem + 1vw, 2.6rem);
+    font-family: $fonts-monty-bold;
+    width: 100%;
+    flex: 1;
+    text-align: center;
+    margin: 2rem 0;
+  }
+}
+.posts {
+  display: grid;
+  grid-template-columns: 1fr;
+  @media screen and (min-width: helpers-pxToRem(800px)) {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  @media screen and (min-width: helpers-pxToRem(1200px)) {
+    column-gap: 10rem;
+  }
+  article {
+    width: 100%;
+    height: 100%;
+  }
+}
+.no-posts {
+  top: 0;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  align-content: center;
+}
