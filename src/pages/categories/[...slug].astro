@@ -1,0 +1,68 @@
+---
+import PostCard from "@/components/PostCard.astro";
+import MainLayout from "@/layouts/MainLayout.astro";
+
+import { slugify } from "@/utils/format";
+import { getCategories } from "@/api/categories/getCategories";
+import { getPostsFromCategory } from "@/api/posts/getPostsFromCategory";
+import { getCategoriesFromPost } from "@/api/posts/getCategoriesFromPost";
+
+import "@/assets/sass/pages/_categoriesPosts.scss";
+
+export async function getStaticPaths() {
+  //Fetching posts
+  const categories = await getCategories();
+
+  //generating
+  return categories.map((category) => ({
+    params: { slug: slugify(category.category_name) },
+    props: category,
+  }));
+}
+const category = Astro.props;
+
+const posts = await getPostsFromCategory(category.category_name);
+---
+
+<MainLayout>
+  <main class="categories-posts">
+    {
+      posts.length !== 0 && (
+        <h1 class="categories-posts__headline">
+          Posts related to {category.category_name}
+        </h1>
+      )
+    }
+
+    <div class="posts">
+      {
+        posts.map((post) => (
+          <PostCard
+            {post}
+            categories={getCategoriesFromPost(post)}
+            image={`/placeholder-social.jpg`}
+          />
+        ))
+      }
+      {
+        posts.map((post) => (
+          <PostCard
+            {post}
+            categories={getCategoriesFromPost(post)}
+            image={`/placeholder-social.jpg`}
+          />
+        ))
+      }
+      {
+        posts.length === 0 && (
+          <div class="no-posts">
+            <h1>
+              Sorry there are no related posts for {category.category_name}!
+            </h1>
+            <a>Explore other categories >> </a>
+          </div>
+        )
+      }
+    </div>
+  </main>
+</MainLayout>
