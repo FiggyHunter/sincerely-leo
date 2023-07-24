@@ -180,6 +180,7 @@ header {
   height: 2rem;
   border-radius: 0.5rem;
   background-color: $colors-nav-background;
+  border: helpers-pxToRem(1.5px) solid $colors-nav-text;
   .arrow {
     width: 25%;
     height: 25%;

@@ -6,6 +6,7 @@
 }
 
 body {
-  position: relative;
   background-color: $colors-body-color;
+  height: fit-content;
+  position: relative;
 }

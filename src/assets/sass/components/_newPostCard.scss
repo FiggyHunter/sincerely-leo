@@ -61,6 +61,7 @@
       color: $colors-accent-color;
     }
     align-self: center;
+    font-size: clamp(1rem, 1rem + 1vw, 1.5rem);
   }
   &__arrow {
     place-self: center end;

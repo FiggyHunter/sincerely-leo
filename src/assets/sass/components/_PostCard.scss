@@ -7,7 +7,7 @@
       cursor: pointer;
       transform: scale(1.04);
     }
-    max-height: helpers-pxToRem(300px);
+    max-height: helpers-pxToRem(290px);
     width: 100%;
     border-radius: 2rem;
     @media screen and (min-width: helpers-pxToRem(700px)) {
@@ -27,8 +27,8 @@
   @media screen and (min-width: helpers-pxToRem(1500px)) {
     width: 60%;
   }
-  gap: 0.5rem;
-  width: 70%;
+  gap: 1rem;
+  width: 80%;
   margin-bottom: 2rem;
   justify-self: center;
   display: grid;
@@ -36,23 +36,22 @@
   &__details {
     display: flex;
     justify-content: center;
-    gap: 0.3rem;
+    gap: 0.5rem;
     flex-wrap: wrap;
   }
   &__headline {
-    margin-top: 0.5rem;
     width: 100%;
     display: grid;
     grid-template-rows: auto max-content;
     font-family: $fonts-grand-medium;
     color: $colors-nav-background;
-    justify-items: start;
     text-align: center;
 
     h2 {
       font-family: $fonts-monty-semibold;
       font-size: clamp(1.1rem, 1rem + 1vw, 1.3rem);
       transition: color 0.3s;
+      align-self: start;
       &:hover {
         cursor: pointer;
         color: $colors-accent-color;
@@ -66,14 +65,14 @@
       }
       font-size: clamp(0.9rem, 1rem + 1vw, 1.5rem);
       width: 100%;
-      margin-top: 1rem;
+      align-self: start;
       text-align: center;
       font-family: $fonts-grand-black;
       color: $colors-nav-background;
+      margin: 0.5rem 0rem;
     }
   }
   #date {
-    margin: 0.5rem 0;
     justify-self: center;
   }
 }

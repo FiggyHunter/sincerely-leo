@@ -11,7 +11,7 @@
     font-size: 2rem;
     justify-self: center;
   }
-  margin-top: 7rem;
+  padding: 7rem 0rem;
   display: grid;
   justify-content: space-evenly;
   grid-template-columns: repeat(auto-fit, 300px);
@@ -19,11 +19,10 @@
     grid-template-columns: repeat(auto-fit, 300px);
   }
   @media screen and (min-width: helpers-pxToRem(1200px)) {
-    grid-template-rows: 2rem repeat(auto-fill, 400px);
     grid-template-columns: repeat(auto-fit, 400px);
   }
-  grid-template-rows: 2rem repeat(auto-fill, 300px);
-  height: 100vh;
+
+  min-height: 100%;
   width: 100%;
   gap: 3rem;
   column-gap: 3rem;

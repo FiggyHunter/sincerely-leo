@@ -12,4 +12,5 @@ footer {
   background-color: $colors-nav-background;
   color: $colors-body-color;
   font-family: $fonts-grand-bold;
+  font-size: clamp(1rem, 1rem + 1vw, 1.75rem);
 }

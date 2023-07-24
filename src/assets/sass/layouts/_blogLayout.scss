@@ -57,7 +57,7 @@
   margin: 0 auto;
   position: relative;
   top: -1rem;
-  background-color: $colors-body-color;
+
   color: $colors-primary-text;
   z-index: 10;
   &__limiter {
@@ -107,6 +107,8 @@
   z-index: 1000;
   position: relative;
   height: fit-content;
+  padding: 0rem 0rem 3rem 0rem;
+  background-color: $colors-body-color;
 }
 
 .blog-grid {

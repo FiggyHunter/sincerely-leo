@@ -18,3 +18,7 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+body {
+  transition: background-color 0.3s;
+}
