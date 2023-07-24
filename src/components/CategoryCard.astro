@@ -5,9 +5,9 @@ const { categoryName, categoryImage, categoryLink } = Astro.props;
 ---
 
 <article class="category">
-  <a class="category-box" href={categoryLink}>
+  <a class="category-box" href=`/categories/${categoryLink}`>
     <img class="category__img" src={categoryImage} />
     <h3 class="category__headline">{categoryName}</h3>
   </a>
-  <a class="link" href="">See posts >></a>
+  <a class="link" href=`/categories/${categoryLink}`>See posts >></a>
 </article>
