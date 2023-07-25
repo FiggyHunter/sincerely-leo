@@ -62,7 +62,10 @@
   z-index: 10;
   &__limiter {
     margin: 0 auto;
-    width: 80%;
+    @media screen and (max-width: helpers-pxToRem(1200px)) {
+      width: 80%;
+    }
+    width: 90%;
   }
   &__image {
     width: 100%;
@@ -115,5 +118,28 @@
   @media screen and (min-width: helpers-pxToRem(1200px)) {
     display: grid;
     grid-template-columns: 2fr 4fr 2fr;
+    gap: 2rem;
+  }
+}
+
+.shortcuts {
+  background-color: red;
+  height: fit-content;
+  top: 25%;
+  bottom: 50%;
+  position: sticky;
+
+  &__headline {
+    font-family: $fonts-monty-semibold;
+    text-align: center;
+  }
+  &__headlines {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+  }
+
+  @media screen and (max-width: helpers-pxToRem(1200px)) {
+    display: none;
   }
 }

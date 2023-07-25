@@ -1,7 +1,7 @@
 ---
 import { marked } from "marked";
 import { gfmHeadingId } from "marked-gfm-heading-id";
-import { getCategoriesFromPost } from "@/api/posts/getPostCategories";
+import { getCategoriesFromPost } from "@/api/posts/getCategoriesFromPost";
 import "@/assets/sass/base/prism.scss";
 
 marked
@@ -48,7 +48,10 @@ const content = marked.parse(post.attributes.Content);
     </div>
   </div>
   <div class="blog-grid">
-    <div class=""></div>
+    <div class="shortcuts">
+      <h3 class="shortcuts__headline">Quick navigation</h3>
+      <div class="shortcuts__headlines"></div>
+    </div>
     <div class="blog-post__content">
       <Fragment set:html={content} />
     </div>
@@ -56,4 +59,11 @@ const content = marked.parse(post.attributes.Content);
   </div>
 </div>
 
-<script></script>
+<script>
+  const selectedHeadlines = Array.from(document.querySelectorAll("h3"));
+  const headlinesContainer = document.querySelector(".shortcuts__headlines");
+
+  selectedHeadlines.map((headline) => {
+    headlinesContainer.innerHTML += `<a href="${headline.id}" > ${headline.innerHTML}</a>`;
+  });
+</script>
