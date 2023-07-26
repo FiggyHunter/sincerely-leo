@@ -3,12 +3,14 @@ interface Props {
   text: String;
   theme: "black" | "white" | "universal" | "universal-date";
   id?: String;
+  link?: String;
 }
 
-const { id, text, theme } = Astro.props;
+const { id, text, theme, link } = Astro.props;
 ---
 
-<div
+<a
+  href=`/categories/${link}`
   id={id}
   class:list={[
     `label`,
@@ -19,7 +21,7 @@ const { id, text, theme } = Astro.props;
   ]}
 >
   <p>{text}</p>
-</div>
+</a>
 
 <style lang="scss">
   @use "@/assets/sass/components/_labels.scss";
