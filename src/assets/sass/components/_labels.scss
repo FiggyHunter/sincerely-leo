@@ -6,6 +6,7 @@
   font-size: clamp(0.7rem, 0.7rem + 0.5vw, 1.2rem);
   border-radius: 5rem;
   position: relative;
+  display: block;
 
   &__white {
     color: black;
@@ -21,5 +22,18 @@
   }
   &__universal__date {
     color: $colors-nav-background;
+  }
+  a {
+    display: block;
+    &:hover {
+      cursor: pointer !important;
+    }
+  }
+  p {
+    transition: color 0.3s;
+    &:hover {
+      cursor: pointer;
+      color: $colors-accent-color;
+    }
   }
 }
