@@ -70,7 +70,7 @@
   &__image {
     width: 100%;
     max-width: 100%;
-    max-height: 800px;
+    max-height: helpers-pxToRem(750px);
     object-position: center;
     object-fit: fill;
   }
@@ -123,23 +123,141 @@
 }
 
 .shortcuts {
-  background-color: red;
   height: fit-content;
   top: 25%;
   bottom: 50%;
   position: sticky;
 
   &__headline {
-    font-family: $fonts-monty-semibold;
+    font-family: $fonts-monty-bold;
     text-align: center;
+    margin-bottom: 1.5rem;
+    &:hover {
+      cursor: default;
+    }
+    color: $colors-nav-background;
   }
   &__headlines {
     display: grid;
     justify-content: center;
     text-align: center;
+    font-family: $fonts-monty-semibold;
+    font-size: 1rem;
+    color: $colors-nav-background;
+    a {
+      transition: color 0.3s;
+      &:hover {
+        color: $colors-accent-color;
+
+        cursor: pointer;
+      }
+    }
+    gap: 0.4rem;
   }
 
   @media screen and (max-width: helpers-pxToRem(1200px)) {
     display: none;
+  }
+}
+
+.visible {
+  color: $colors-accent-color;
+}
+
+.active-content {
+  animation: content-active 1.5s;
+}
+@keyframes content-active {
+  0% {
+  }
+
+  50% {
+    background-color: $colors-accent-color-light;
+  }
+
+  100% {
+    background-color: none;
+  }
+}
+
+.share {
+  p {
+    font-family: $fonts-monty-semibold;
+    font-size: 1.25rem;
+    @media screen and (min-width: helpers-pxToRem(1200px)) {
+      transform: rotate(90deg);
+    }
+  }
+  gap: 1rem;
+  position: relative;
+  top: 25%;
+  bottom: 15%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+
+  justify-items: center;
+  height: fit-content;
+
+  @media screen and (min-width: helpers-pxToRem(1200px)) {
+    grid-template-columns: unset;
+    position: sticky;
+    grid-auto-rows: min-content;
+  }
+  .divider {
+    height: 10vw;
+    width: 1px;
+    background-color: $colors-accent-color;
+
+    transform: rotate(90deg);
+    align-self: center;
+    @media screen and (min-width: helpers-pxToRem(1200px)) {
+      transform: rotate(0deg);
+      margin-top: 2rem;
+      height: 20vh;
+    }
+  }
+}
+
+#fb,
+#linkedin,
+#twitter,
+#copy {
+  width: 2rem;
+  height: 2rem;
+  fill: $colors-nav-background;
+  transition: fill 0.3s;
+  &:hover {
+    fill: $colors-accent-color;
+  }
+}
+
+.copied {
+  display: none;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  background-color: red;
+  bottom: 3rem;
+  left: 0;
+  font-size: 1.5rem;
+
+  &--visible {
+    display: block;
+    animation: copy 2s;
+  }
+}
+
+@keyframes copy {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
   }
 }
