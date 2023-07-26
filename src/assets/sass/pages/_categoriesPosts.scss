@@ -28,11 +28,30 @@
   }
 }
 .no-posts {
+  left: 0;
   top: 0;
+  width: 80%;
+  margin: 0 auto;
   position: fixed;
   height: 100vh;
   width: 100vw;
   display: grid;
   place-items: center;
   align-content: center;
+  h1 {
+    font-family: $fonts-monty-extra-bold;
+    font-size: clamp(1rem, 1rem + 1vw, 2rem);
+    margin-bottom: 1rem;
+    color: $colors-nav-background;
+    text-align: center;
+  }
+  a {
+    font-size: clamp(0.7rem, 0.7rem + 1vw, 1.3rem);
+    font-family: $fonts-monty-semibold;
+    transition: color 0.3s;
+    color: $colors-nav-background;
+    &:hover {
+      color: $colors-accent-color;
+    }
+  }
 }
