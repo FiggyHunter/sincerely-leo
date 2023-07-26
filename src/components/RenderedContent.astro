@@ -55,15 +55,221 @@ const content = marked.parse(post.attributes.Content);
     <div class="blog-post__content">
       <Fragment set:html={content} />
     </div>
-    <div class=""></div>
+    <div class="share">
+      <p>SHARE</p>
+      <div class="divider"></div>
+
+      <a
+        href=`https://twitter.com/intent/tweet?url=http://localhost:3000/blog/the-power-of-artificial-intelligence-transforming-industries-and-shaping-the-future&text=${post.attributes.Title}`
+      >
+        <svg
+          width="30.19104mm"
+          height="24.595703mm"
+          fill="none"
+          viewBox="0 0 30.19104 24.595703"
+          version="1.1"
+          id="twitter"
+          xml:space="preserve"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          ><defs id="defs2"></defs><g
+            id="layer1"
+            transform="translate(552.91353,50.798644)"
+            ><path
+              style="stroke-width:0.264583"
+              d="m -548.33913,-26.840823 c -1.09141,-0.328554 -2.56714,-0.898589 -3.2794,-1.266743 l -1.29502,-0.669369 2.27185,-0.160327 c 2.31346,-0.163264 4.22571,-0.778957 5.93173,-1.909858 l 0.85105,-0.564145 -1.35078,-0.346194 c -1.45285,-0.372354 -3.15472,-1.69408 -3.80802,-2.95743 -0.52314,-1.01163 -0.51415,-1.02521 0.67859,-1.02521 1.17728,0 1.41804,-0.38152 0.40172,-0.636599 -0.91601,-0.229903 -2.45547,-1.642398 -3.04106,-2.790238 -0.45244,-0.88687 -0.98585,-2.92696 -0.76355,-2.9203 0.0526,0.002 0.66114,0.17447 1.35236,0.38422 0.69123,0.20975 1.25678,0.34417 1.25678,0.29873 0,-0.0455 -0.41548,-0.52316 -0.92328,-1.06158 -1.59679,-1.69309 -2.04726,-4.28981 -1.14288,-6.58806 l 0.29361,-0.74611 1.48158,1.44776 c 2.95298,2.88557 5.82178,4.26038 10.52223,5.04254 l 0.83855,0.13954 0.008,-1.59757 c 0.0107,-2.24064 1.02331,-4.01724 2.9701,-5.21105 1.34314,-0.82364 1.55465,-0.87208 3.46099,-0.7927 1.79865,0.0749 2.17149,0.18399 3.26624,0.95564 1.1576,0.81595 1.29703,0.85132 2.20291,0.55889 0.5319,-0.17171 1.30558,-0.48366 1.71928,-0.69321 0.41371,-0.20955 0.81424,-0.31896 0.89008,-0.24312 0.21489,0.21489 -0.94263,1.94936 -1.69685,2.54263 -0.5793,0.45568 -0.60549,0.53181 -0.17954,0.52189 0.27429,-0.006 0.9704,-0.17962 1.54691,-0.38495 0.57651,-0.20534 1.09354,-0.32802 1.14894,-0.27261 0.0554,0.0554 -0.5506,0.7732 -1.34667,1.5951 -1.41248,1.45831 -1.45177,1.54018 -1.62836,3.39307 -0.76636,8.041606 -5.56647,14.018277 -12.88818,16.047226 -2.75734,0.764101 -7.04407,0.724588 -9.74956,-0.08986 z"
+              id="path943"></path></g
+          ></svg
+        >
+      </a>
+
+      <a
+        href="https://www.linkedin.com/sharing/share-offsite/?url=https://leotg.com/blog/the-power-of-artificial-intelligence-transforming-industries-and-shaping-the-future
+      "
+      >
+        <svg
+          width="101.43799mm"
+          height="101.63576mm"
+          viewBox="0 0 101.43799 101.63576"
+          version="1.1"
+          id="linkedin"
+          fill="none"
+          xml:space="preserve"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          ><defs id="defs2"></defs><g
+            id="layer1"
+            transform="translate(789.30953,21.871978)"
+            ><path
+              style="stroke-width:0.264583"
+              d="m -782.95953,79.373598 c -2.53254,-0.80094 -4.54466,-2.54943 -5.66358,-4.92156 l -0.68642,-1.45521 v -44.3177 -44.31771 l 0.74562,-1.5184 c 1.15687,-2.35588 3.27879,-3.8846 6.12134,-4.41007 2.20053,-0.40679 85.81449,-0.40646 88.15056,3.4e-4 2.01577,0.35103 3.75332,1.39596 4.85874,2.92195 1.69672,2.34226 1.60449,-0.53821 1.52838,47.73292 -0.0632,40.08408 -0.10729,44.00787 -0.50628,45.04759 -0.97074,2.52969 -3.03657,4.5179 -5.44849,5.24378 -1.71508,0.51618 -87.46706,0.51046 -89.09987,-0.006 z m 25.00313,-39.1851 v -22.62187 h -7.27604 -7.27604 v 22.62187 22.62187 h 7.27604 7.27604 z m 23.33867,8.40052 0.077,-14.22135 0.74093,-1.50882 c 0.90385,-1.84057 2.91215,-3.71276 4.59941,-4.28767 3.33244,-1.13547 7.12739,0.22925 8.58556,3.08751 1.17195,2.29721 1.27818,3.77564 1.28305,17.85637 l 0.005,13.29531 h 7.29132 7.29132 l -0.093,-15.67656 c -0.0901,-15.18327 -0.11132,-15.74316 -0.67519,-17.79323 -0.7718,-2.80604 -2.39356,-6.03048 -3.88251,-7.71936 -4.409,-5.00102 -12.87179,-6.55216 -19.07806,-3.49682 -1.68475,0.82939 -3.82783,2.67348 -5.34771,4.6016 l -0.83426,1.05834 -0.009,-3.10886 -0.009,-3.10885 h -7.27604 -7.27604 v 22.62187 22.62187 h 7.26523 7.26524 z M -761.10945,9.9197477 c 2.58296,-1.3319 3.95547,-3.48617 4.1465,-6.50833 0.21071,-3.33355004 -1.30198,-6.07988 -4.10771,-7.45766 -1.97891,-0.97176 -5.07023,-1.05281 -6.93991,-0.18193 -6.25993,2.91579 -5.84219,12.13894 0.66146,14.6041503 1.32621,0.5027 4.88457,0.24252 6.23966,-0.4562303 z"
+              id="path1135"></path></g
+          ></svg
+        >
+      </a>
+
+      <a href="https://www.facebook.com/sharer/sharer.php?u=www.leotg.com">
+        <svg
+          width="14.261902mm"
+          height="30.126526mm"
+          viewBox="0 0 14.261902 30.126526"
+          version="1.1"
+          id="fb"
+          xml:space="preserve"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          ><defs id="defs2"></defs><g
+            id="layer1"
+            transform="translate(759.40261,-394.66881)"
+            ><path
+              style="stroke-width:0.264583"
+              d="m -755.1912,424.63933 c -0.3638,-0.0676 -0.74893,-0.25976 -0.85584,-0.42699 -0.10692,-0.16723 -0.19621,-3.48897 -0.19844,-7.38166 l -0.004,-7.0776 h -1.17173 c -1.75653,0 -2.07795,-0.46025 -1.9595,-2.80584 0.0534,-1.05658 0.18178,-2.00582 0.28538,-2.10943 0.10361,-0.1036 0.76975,-0.24423 1.4803,-0.31251 l 1.29192,-0.12414 0.14234,-2.58319 c 0.21112,-3.83136 1.11061,-5.50206 3.49969,-6.50028 1.1301,-0.47219 5.69435,-0.83545 6.85065,-0.54524 0.67387,0.16913 0.69333,0.23178 0.6894,2.21953 -0.002,1.12501 -0.10628,2.20681 -0.23123,2.40399 -0.13928,0.21981 -0.93106,0.41036 -2.04647,0.49252 -1.21484,0.0895 -1.92918,0.27285 -2.15002,0.55194 -0.19128,0.24173 -0.33073,1.17756 -0.33073,2.21947 v 1.80151 l 1.65364,0.004 c 0.90951,0.002 1.93794,0.0797 2.28541,0.17269 0.61991,0.1659 0.62878,0.21132 0.47276,2.42215 -0.0984,1.39406 -0.28881,2.33544 -0.49947,2.4691 -0.18726,0.11881 -1.14414,0.21784 -2.1264,0.22007 l -1.78594,0.004 v 7.37237 7.37237 l -1.22755,0.16826 c -1.32342,0.18139 -3.00371,0.17033 -4.06412,-0.0267 z"
+              id="path915-3"></path></g
+          ></svg
+        >
+      </a>
+      <a class="copy-link" href="">
+        <svg
+          width="115.34061mm"
+          height="115.34006mm"
+          viewBox="0 0 115.34061 115.34006"
+          version="1.1"
+          id="copy"
+          fill="none"
+          xml:space="preserve"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          ><defs id="defs2"></defs><g
+            id="layer1"
+            transform="translate(385.92765,-375.16753)"
+            ><path
+              style="stroke-width:0.264583"
+              d="m -363.49403,490.12755 c -11.3688,-1.91322 -20.57518,-11.35348 -22.15595,-22.7188 -1.02159,-7.345 0.80129,-14.66904 5.0467,-20.27671 0.82627,-1.09141 4.57803,-5.03459 8.33724,-8.76262 7.43149,-7.36988 7.66775,-7.53799 10.28823,-7.32068 3.38836,0.28099 5.63453,3.42368 4.87549,6.82144 -0.31878,1.427 -0.47173,1.60478 -7.51275,8.73269 -7.77984,7.87586 -8.57743,8.93421 -9.5378,12.65623 -0.67322,2.60912 -0.574,6.36507 0.23585,8.92821 2.09101,6.61796 8.03719,10.97408 14.99107,10.98233 3.07078,0.004 5.21338,-0.49475 7.78233,-1.81027 1.67578,-0.85814 3.2541,-2.34833 16.57978,-15.65402 10.42211,-10.40648 15.04459,-15.20231 15.81168,-16.40465 1.59046,-2.49287 2.40125,-5.29986 2.40125,-8.31319 0,-4.10432 -1.24175,-7.4705 -3.86562,-10.47908 -1.95871,-2.24588 -2.32799,-3.02052 -2.34004,-4.90868 -0.0205,-3.20353 2.33219,-5.55868 5.5442,-5.5501 2.04972,0.005 3.37611,0.74169 5.20022,2.88637 4.20997,4.94983 6.41583,10.35943 6.75846,16.57426 0.33074,5.9991 -1.36132,11.85793 -4.88467,16.91343 -1.46233,2.09822 -29.83234,30.6438 -32.47401,32.67497 -5.71268,4.39247 -13.63443,6.28214 -21.08166,5.02887 z m 26.30497,-44.36277 c -2.84123,-0.63613 -7.50755,-6.8734 -9.27019,-12.39107 -0.99706,-3.12116 -1.23418,-4.80823 -1.20859,-8.59896 0.0288,-4.26097 0.67451,-7.28685 2.31087,-10.82853 1.95673,-4.23509 2.81114,-5.21831 16.41644,-18.89162 7.14257,-7.17827 13.87946,-13.728 14.97087,-14.55495 9.72148,-7.36589 23.75118,-7.07061 33.35308,0.70198 11.51302,9.31962 13.39126,26.34827 4.1932,38.01687 -0.68826,0.87312 -3.43485,3.73783 -6.10352,6.36601 -3.90106,3.84187 -5.0656,4.8402 -5.94117,5.09323 -1.64929,0.47663 -2.77143,0.38283 -4.25306,-0.3555 -2.35672,-1.1744 -3.52095,-3.62862 -2.96066,-6.24115 0.28958,-1.35025 0.52377,-1.63468 5.63174,-6.83988 5.74469,-5.85404 6.78642,-7.31452 7.67556,-10.7609 0.66449,-2.57564 0.56056,-6.49914 -0.23922,-9.03088 -2.07308,-6.56246 -8.04555,-10.92177 -14.97466,-10.92999 -3.07375,-0.004 -5.21672,0.49551 -7.78233,1.81273 -1.66298,0.8538 -3.1668,2.26301 -14.72848,13.80194 -13.4204,13.39399 -14.41951,14.53734 -15.57122,17.8192 -0.80216,2.28578 -1.00055,6.34935 -0.42278,8.65957 0.61272,2.44996 2.04278,5.14241 3.8277,7.20666 2.28384,2.64124 2.69409,4.57302 1.48602,6.9973 -0.74066,1.48631 -2.02661,2.51944 -3.69541,2.96888 -1.19684,0.32234 -1.18039,0.32246 -2.71419,-0.021 z"
+              id="path1207"></path></g
+          ></svg
+        >
+      </a>
+    </div>
   </div>
+
+  <div class="copied">You have copied the URL of the blog post!</div>
 </div>
 
 <script>
-  const selectedHeadlines = Array.from(document.querySelectorAll("h3"));
-  const headlinesContainer = document.querySelector(".shortcuts__headlines");
+  // fetching all headings (h3) and displaying them in aside container, for desktop devices only
+  interface BlogHeadingElement extends HTMLElement {
+    id: string;
+    innerHTML: string;
+  }
+  document.addEventListener("DOMContentLoaded", () => {
+    const selectedHeadlines: BlogHeadingElement[] = Array.from(
+      document.querySelectorAll(".blog-post__content h3")
+    );
 
-  selectedHeadlines.map((headline) => {
-    headlinesContainer.innerHTML += `<a href="${headline.id}" > ${headline.innerHTML}</a>`;
+    const headlinesContainer: HTMLElement | null = document.querySelector(
+      ".shortcuts__headlines"
+    );
+
+    if (headlinesContainer) {
+      selectedHeadlines.forEach((headline) => {
+        headlinesContainer.innerHTML += `<a data-nav="${headline.id}" > ${headline.innerHTML}</a>`;
+      });
+
+      const navHeadlines: NodeListOf<HTMLAnchorElement> =
+        headlinesContainer.querySelectorAll("a");
+
+      function scrollToHeading(e: Event): void {
+        e.preventDefault();
+
+        const navHeadline = e.target as HTMLAnchorElement;
+        const navHeadlineId = navHeadline.dataset.nav;
+        const blogElementHeadline = document.getElementById(`${navHeadlineId}`);
+
+        if (blogElementHeadline) {
+          blogElementHeadline.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+
+          blogElementHeadline.classList.add("active-content");
+
+          const nextSibling = blogElementHeadline.nextElementSibling;
+          if (nextSibling) {
+            nextSibling.classList.add("active-content");
+          }
+
+          setTimeout(() => {
+            blogElementHeadline.classList.remove("active-content");
+            if (nextSibling) {
+              nextSibling.classList.remove("active-content");
+            }
+          }, 1500);
+        }
+      }
+
+      navHeadlines.forEach((navHeadline) => {
+        navHeadline.addEventListener("click", scrollToHeading);
+      });
+    }
+
+    const headings: NodeListOf<HTMLHeadingElement> = document.querySelectorAll(
+      ".blog-post__content h3"
+    );
+
+    function handleIntersection(entries: IntersectionObserverEntry[]): void {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // The h2 headline is now visible on the screen
+          const headingId = entry.target.id;
+          handleHeadingVisible(headingId);
+        }
+      });
+    }
+
+    function handleHeadingVisible(headingId: string): void {
+      const navLinks: NodeListOf<HTMLAnchorElement> =
+        document.querySelectorAll("[data-nav]");
+      navLinks.forEach((link) => {
+        link.classList.remove("visible");
+      });
+
+      const visibleLink = document.querySelector(`[data-nav='${headingId}']`);
+      if (visibleLink) {
+        visibleLink.classList.add("visible");
+      }
+    }
+
+    const observerOptions: IntersectionObserverInit = {
+      rootMargin: "-50% 0% -50% 0%",
+      threshold: 0,
+    };
+
+    const observer = new IntersectionObserver(
+      handleIntersection,
+      observerOptions
+    );
+
+    // Observe each h2 element
+    headings.forEach((heading) => {
+      observer.observe(heading);
+    });
+
+    const copy = document.querySelector(".copy-link");
+
+    copy?.addEventListener("click", async (e) => {
+      const notification = document.querySelector(".copied");
+      e.preventDefault();
+      const currentURL = window.location;
+      try {
+        await navigator.clipboard.writeText(currentURL);
+        console.log("Text copied to clipboard successfully!");
+        notification.classList.add("copied--visible");
+        setTimeout(() => {
+          notification.classList.remove("copied--visible");
+        }, 1900);
+      } catch (err) {
+        console.error("Failed to copy text: ", err);
+      }
+    });
   });
 </script>
