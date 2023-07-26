@@ -22,3 +22,20 @@
 body {
   transition: background-color 0.3s;
 }
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  &:hover {
+    cursor: default;
+  }
+}
+
+* {
+  &::selection {
+    background-color: #ff00c879;
+  }
+}
