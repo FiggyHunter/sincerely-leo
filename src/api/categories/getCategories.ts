@@ -1,5 +1,5 @@
 export async function getCategories() {
-  const res = await fetch("http://localhost:1337/api/categories");
+  const res = await fetch("https://cdn.leotg.com/api/categories");
   const { data: categories } = await res.json();
 
   const returnedCategories = [];

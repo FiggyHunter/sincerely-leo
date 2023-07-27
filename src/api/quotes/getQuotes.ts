@@ -1,5 +1,5 @@
 export async function getQuotes() {
-  const res = await fetch("http://localhost:1337/api/quotes");
+  const res = await fetch("https://cdn.leotg.com/api/quotes");
   const { data: quotes } = await res.json();
 
   const returnedQuotes = [];
