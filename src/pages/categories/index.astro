@@ -14,6 +14,12 @@ const categories = await getCategories();
   <CategoryLayout>
     <main class="categories">
       <h1>All Categories</h1>
+      <CategoryCard
+        categoryName={`All posts`}
+        categoryImage={`/placeholder-social.jpg`}
+        categoryLink={`/blog`}
+        isStatic={true}
+      />
       {
         categories.map((category) => (
           <CategoryCard
