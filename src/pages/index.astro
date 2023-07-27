@@ -8,7 +8,7 @@ import PostCard from "@/components/PostCard.astro";
 // api
 import { getPosts } from "@/api/posts/getPosts.ts";
 import { getLatestPost } from "@/api/posts/sortedPosts";
-import { getCategoriesFromPost } from "@/api/posts/getPostCategories";
+import { getCategoriesFromPost } from "@/api/posts/getCategoriesFromPost";
 import { getQuotes } from "@/api/quotes/getQuotes";
 import { getRandomQuote } from "@/api/quotes/getRandomQuote";
 
@@ -52,13 +52,17 @@ const Quote = await getRandomQuote(getQuotes());
       <h3 class="headline">Recent blog posts</h3>
       <div class="recent-posts">
         {
-          posts.map((post) => (
-            <PostCard
-              post={post}
-              categories={getCategoriesFromPost(post)}
-              image={"https://picsum.photos/400/500"}
-            />
-          ))
+          posts
+            .slice(0, 4)
+            .map((post) => (
+              <PostCard
+                post={post}
+                categories={getCategoriesFromPost(post)}
+                image={
+                  "http://localhost:1337/uploads/thumbnail_ai_generated_7771756_1280_87ed9891ff.webp"
+                }
+              />
+            ))
         }
       </div>
     </main>
