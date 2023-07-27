@@ -8,6 +8,7 @@ import { getPostsFromCategory } from "@/api/posts/getPostsFromCategory";
 import { getCategoriesFromPost } from "@/api/posts/getCategoriesFromPost";
 
 import "@/assets/sass/pages/_categoriesPosts.scss";
+import { sortPosts } from "@/api/posts/sortedPosts";
 
 export async function getStaticPaths() {
   //Fetching posts
@@ -22,12 +23,13 @@ export async function getStaticPaths() {
 const category = Astro.props;
 
 const posts = await getPostsFromCategory(category.category_name);
+const sortedPosts = await sortPosts(posts);
 ---
 
 <MainLayout>
   <main class="categories-posts">
     {
-      posts.length !== 0 && (
+      sortedPosts.length !== 0 && (
         <h1 class="categories-posts__headline">
           Posts related to {category.category_name}
         </h1>
@@ -36,7 +38,7 @@ const posts = await getPostsFromCategory(category.category_name);
 
     <div class="posts">
       {
-        posts.map((post) => (
+        sortedPosts.map((post) => (
           <PostCard
             {post}
             categories={getCategoriesFromPost(post)}
@@ -44,22 +46,14 @@ const posts = await getPostsFromCategory(category.category_name);
           />
         ))
       }
+
       {
-        posts.map((post) => (
-          <PostCard
-            {post}
-            categories={getCategoriesFromPost(post)}
-            image={`/placeholder-social.jpg`}
-          />
-        ))
-      }
-      {
-        posts.length === 0 && (
+        sortedPosts.length === 0 && (
           <div class="no-posts">
             <h1>
               Sorry there are no related posts for {category.category_name}!
             </h1>
-            <a>Explore other categories >> </a>
+            <a href="/categories">Explore other categories >> </a>
           </div>
         )
       }
