@@ -1,13 +1,20 @@
 ---
 import "@/assets/sass/components/_categoryCard.scss";
 
-const { categoryName, categoryImage, categoryLink } = Astro.props;
+const { categoryName, categoryImage, categoryLink, isStatic } = Astro.props;
+
+const computedURL = isStatic ? "" : "/categories/";
 ---
 
 <article class="category">
-  <a class="category-box" href=`/categories/${categoryLink}`>
+  <a class="category-box" href=`${computedURL}${categoryLink}`>
     <img class="category__img" src={categoryImage} />
     <h3 class="category__headline">{categoryName}</h3>
   </a>
-  <a class="link" href=`/categories/${categoryLink}`>See posts >></a>
+  {
+    isStatic === true && (<a class="link" href=`${categoryLink}`>See posts >></a>)
+  }
+    {
+    isStatic===undefined && (<a class="link" href=`/categories/${categoryLink}`>See posts >></a>)
+  }
 </article>
