@@ -1,0 +1,16 @@
+@use "../shared" as *;
+
+.pagination {
+  display: flex;
+  gap: 2rem;
+  position: relative;
+  bottom: 5rem;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  p {
+    font-family: $fonts-monty-bold;
+    color: $colors-nav-background;
+    font-size: clamp(1.2rem, 1.2rem + 1vw, 1.3rem);
+  }
+}
