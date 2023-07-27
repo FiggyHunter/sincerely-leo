@@ -1,0 +1,11 @@
+@use "../shared" as *;
+
+span {
+  font-family: $fonts-monty-bold;
+  font-size: clamp(1.25rem, 1.25rem + 1vw, 1.5rem);
+  background-color: $colors-nav-background;
+  color: $colors-nav-text;
+  padding: 0.25rem 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.361);
+}
