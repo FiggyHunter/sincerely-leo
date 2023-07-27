@@ -1,0 +1,13 @@
+---
+import "@/assets/sass/components/_pagination.scss";
+import Link from "./Link.astro";
+
+const base = import.meta.env.BASE_URL.slice(0, -1);
+const { prevUrl, nextUrl, pageNumber } = Astro.props;
+---
+
+<nav class="pagination" aria-label="Blog pages">
+  {prevUrl && <Link text="Previous" href={base + prevUrl} />}
+  <p>Page: {pageNumber}</p>
+  {nextUrl && <Link text="Next" href={base + nextUrl} />}
+</nav>
