@@ -2,14 +2,23 @@
 
 .all-posts {
   padding: 5rem 0;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
+  @media screen and (min-width: helpers-pxToRem(1000px)) {
+    grid-template-columns: 1fr 1fr;
+  }
   flex-direction: column;
   align-items: center;
-  gap: 3rem;
+  gap: 1rem;
   &__headline {
     font-family: $fonts-monty-bold;
     font-size: clamp(1.75rem, 1.75rem + 1vw, 2.4rem);
     margin: clamp(2rem, 2rem + 1vw, 4rem) 0;
     color: $colors-nav-background;
+    grid-column: 1/-1;
+    justify-self: center;
+  }
+  .post {
+    width: 80%;
   }
 }
