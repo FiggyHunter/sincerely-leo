@@ -7,10 +7,12 @@ interface Props {
 }
 
 const { id, text, theme, link } = Astro.props;
+
+const computedLink = link ? "/categories/" : "";
 ---
 
 <a
-  href=`/categories/${link}`
+  href=`${computedLink}${link}`
   id={id}
   class:list={[
     `label`,
