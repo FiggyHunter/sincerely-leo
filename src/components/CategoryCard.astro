@@ -1,6 +1,8 @@
 ---
 import "@/assets/sass/components/_categoryCard.scss";
 
+import { Image } from "astro:assets";
+
 const { categoryName, categoryImage, categoryLink, isStatic } = Astro.props;
 
 const computedURL = isStatic ? "" : "/categories/";
@@ -8,7 +10,7 @@ const computedURL = isStatic ? "" : "/categories/";
 
 <article class="category">
   <a class="category-box" href=`${computedURL}${categoryLink}`>
-    <img class="category__img" src={categoryImage} />
+    <Image width={500} height={500} alt=`image for ${categoryName} category` class="category__img" src={categoryImage} />
     <h3 class="category__headline">{categoryName}</h3>
   </a>
   {
