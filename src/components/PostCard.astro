@@ -1,6 +1,7 @@
 ---
 import { slugify } from "@/utils/format";
 import Labels from "./Labels.astro";
+import { Image } from "astro:assets";
 interface Props {
   post: any;
   categories: any;
@@ -13,7 +14,13 @@ const text = post.attributes.Title;
 
 <article class="post">
   <a href=`/blog/${post.attributes.Slug}`>
-    <img class="post__image" src=`${image}` alt="blog post image" />
+    <Image
+      height={500}
+      width={500}
+      class="post__image"
+      src={image}
+      alt="blog post image"
+    />
   </a>
   <div class="post__details">
     {
@@ -27,6 +34,7 @@ const text = post.attributes.Title;
         id="date"
         text={new Date(post.attributes.publishedAt).toLocaleDateString()}
         theme={"universal-date"}
+        link={""}
       />
       <a href=`/blog/${post.attributes.Slug}`> <h2>{text}</h2></a>
 

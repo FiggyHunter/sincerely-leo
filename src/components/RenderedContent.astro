@@ -3,7 +3,7 @@ import { marked } from "marked";
 import { gfmHeadingId } from "marked-gfm-heading-id";
 import { getCategoriesFromPost } from "@/api/posts/getCategoriesFromPost";
 import "@/assets/sass/base/prism.scss";
-
+import { Image } from "astro:assets";
 marked
   .use({
     mangle: false,
@@ -23,9 +23,13 @@ const content = marked.parse(post.attributes.Content);
 ---
 
 <div class="blog-post__image-ctr">
-  <img
+  <Image
     class="blog-post__image"
     src="https://media.discordapp.net/attachments/1125381201557983274/1131995334969671730/kat.png?width=704&height=663"
+    height={800}
+    width={800}
+    loading={"eager"}
+    alt="cover image for blog post"
   />
   <div class="blog-post__overlay"></div>
 </div>
@@ -60,7 +64,7 @@ const content = marked.parse(post.attributes.Content);
       <div class="divider"></div>
 
       <a
-        href=`https://twitter.com/intent/tweet?url=http://localhost:3000/blog/the-power-of-artificial-intelligence-transforming-industries-and-shaping-the-future&text=${post.attributes.Title}`
+        href=`https://twitter.com/intent/tweet?url=${Astro.url}&text=${post.attributes.Title}`
       >
         <svg
           width="30.19104mm"
@@ -84,8 +88,7 @@ const content = marked.parse(post.attributes.Content);
       </a>
 
       <a
-        href="https://www.linkedin.com/sharing/share-offsite/?url=https://leotg.com/blog/the-power-of-artificial-intelligence-transforming-industries-and-shaping-the-future
-      "
+        href=`https://www.linkedin.com/sharing/share-offsite/?url=${Astro.url}`
       >
         <svg
           width="101.43799mm"
@@ -108,7 +111,7 @@ const content = marked.parse(post.attributes.Content);
         >
       </a>
 
-      <a href="https://www.facebook.com/sharer/sharer.php?u=www.leotg.com">
+      <a href=`https://www.facebook.com/sharer/sharer.php?u=${Astro.url}`>
         <svg
           width="14.261902mm"
           height="30.126526mm"
@@ -128,7 +131,7 @@ const content = marked.parse(post.attributes.Content);
           ></svg
         >
       </a>
-      <a class="copy-link" href="">
+      <div class="copy-link">
         <svg
           width="115.34061mm"
           height="115.34006mm"
@@ -148,7 +151,7 @@ const content = marked.parse(post.attributes.Content);
               id="path1207"></path></g
           ></svg
         >
-      </a>
+      </div>
     </div>
   </div>
 
@@ -172,11 +175,11 @@ const content = marked.parse(post.attributes.Content);
 
     if (headlinesContainer) {
       selectedHeadlines.forEach((headline) => {
-        headlinesContainer.innerHTML += `<a data-nav="${headline.id}" > ${headline.innerHTML}</a>`;
+        headlinesContainer.innerHTML += `<div data-nav="${headline.id}" > ${headline.innerHTML}</div>`;
       });
 
       const navHeadlines: NodeListOf<HTMLAnchorElement> =
-        headlinesContainer.querySelectorAll("a");
+        headlinesContainer.querySelectorAll("div");
 
       function scrollToHeading(e: Event): void {
         e.preventDefault();
@@ -240,7 +243,7 @@ const content = marked.parse(post.attributes.Content);
     }
 
     const observerOptions: IntersectionObserverInit = {
-      rootMargin: "-50% 0% -50% 0%",
+      rootMargin: "-40% 0% -40% 0%",
       threshold: 0,
     };
 

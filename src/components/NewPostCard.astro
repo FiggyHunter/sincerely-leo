@@ -1,13 +1,20 @@
 ---
 import { slugify } from "@/utils/format";
 import Labels from "./Labels.astro";
+import { Image } from "astro:assets";
 
 const { post, categories } = await Astro.props;
 ---
 
 <article class="new">
   <div class="image">
-    <img class="new__image" src={post.attributes.cover_url} />
+    <Image
+      width={600}
+      height={600}
+      alt="cover image for post"
+      class="new__image"
+      src={post.attributes.cover_url}
+    />
     <div class="new__labels">
       <div class="new__date">
         <Labels
