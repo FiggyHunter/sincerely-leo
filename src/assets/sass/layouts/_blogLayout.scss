@@ -72,7 +72,7 @@
     max-width: 100%;
     max-height: helpers-pxToRem(750px);
     object-position: center;
-    object-fit: fill;
+    object-fit: cover;
   }
   &__image-ctr {
     display: grid;
@@ -94,7 +94,7 @@
       display: flex;
     }
     .date {
-      font-family: $fonts-grand-medium;
+      font-family: $fonts-monty-medium;
       font-size: clamp(1rem, 1rem + 1vw, 1.5rem);
     }
     display: grid;
@@ -235,11 +235,14 @@
 .copied {
   display: none;
   position: fixed;
+
   text-align: center;
   width: 100%;
-  background-color: red;
-  bottom: 3rem;
+  background-color: $colors-accent-color;
+  font-family: $fonts-monty-bold;
+  z-index: 500;
   left: 0;
+  bottom: 4%;
   font-size: 1.5rem;
 
   &--visible {
