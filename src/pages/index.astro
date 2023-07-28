@@ -17,7 +17,7 @@ import "@/assets/sass/pages/_homePage.scss";
 const posts = await getPosts();
 
 // Get latest post
-const latestPost = await getLatestPost(posts, { sort: true });
+const latestPost = await getLatestPost(posts);
 
 // Calculate categories
 const latestCategories = latestPost.attributes.categories.data.map(
@@ -41,6 +41,7 @@ const Quote = await getRandomQuote(getQuotes());
         <LinkCard
           text={`My Photography >>`}
           image={"https://www.k9ofmine.com/wp-content/uploads/2018/07/beautiful-dog-breed-list.jpg"}
+          link="photo"
         />
       </div>
       <div class="card-2">
@@ -59,7 +60,7 @@ const Quote = await getRandomQuote(getQuotes());
                 post={post}
                 categories={getCategoriesFromPost(post)}
                 image={
-                  "http://localhost:1337/uploads/thumbnail_ai_generated_7771756_1280_87ed9891ff.webp"
+                  "http://cdn.leotg.com/uploads/thumbnail_ai_generated_7771756_1280_87ed9891ff.webp"
                 }
               />
             ))
