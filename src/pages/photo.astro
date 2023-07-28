@@ -1,56 +1,20 @@
 ---
 import CategoryLayout from "@/layouts/CategoryLayout.astro";
-import MainLayout from "@/layouts/MainLayout.astro";
-import { Image } from "astro:assets";
+import { getPhotographs } from "@/api/photographs/getPhotographs";
+import { getPhotographUrl } from "@/api/photographs/getPhotographUrl";
 
-const res = await fetch("http://localhost:1337/api/images?populate=*");
-const { data: images } = await res.json();
-console.log(images[0].attributes.Image.data.attributes.formats);
+import { Image } from "astro:assets";
+import ImageFullScreen from "@/components/ImageFullScreen.vue";
+
+const photos = await getPhotographs();
+
+console.log(photos[0].attributes.metadata);
 ---
 
 <CategoryLayout>
-  <section class="image-gallery">
-    {
-      images.map((image) => (
-        <article class="image-gallery__image">
-          <Image
-            height="800"
-            width="800"
-            quality={80}
-            alt="nesto"
-            src={image.attributes.link}
-          />{" "}
-        </article>
-      ))
-    }
-  </section>
+  <ImageFullScreen client:only />
 </CategoryLayout>
-
-<style is:global lang="scss">
-  .image-gallery {
-    padding: 5rem 0rem;
-    width: 100%;
-    display: grid;
-    gap: 2rem;
-    background-color: red;
-    grid-template-columns: 1fr;
-    justify-content: center;
-    @media screen and (min-width: 1000px) {
-      grid-template-columns: repeat(auto-fill, 350px);
-      grid-auto-rows: 350px;
-    }
-    justify-items: center;
-    &__image {
-      width: 100%;
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
-  }
-</style>
 
 <script>
   document.querySelectorAll(".image-gallery__image img")[0].loading = "auto";
-  document.querySelectorAll(".image-gallery__image img")[1].loading = "auto";
 </script>
