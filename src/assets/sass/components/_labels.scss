@@ -29,11 +29,19 @@
       cursor: pointer !important;
     }
   }
+
   p {
     transition: color 0.3s;
     &:hover {
-      cursor: pointer;
+      cursor: $cursors-pointer;
       color: $colors-accent-color;
     }
+  }
+}
+
+#date {
+  p {
+    cursor: $cursors-normal;
+    color: unset;
   }
 }
