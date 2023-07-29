@@ -8,10 +8,10 @@ interface Props {
 
 const { id, text, theme, link } = Astro.props;
 
-const computedLink = link ? "/categories/" : "";
+const computedLink = link ? "/categories/" : undefined;
 ---
 
-<a
+{ computedLink && <a
   href=`${computedLink}${link}`
   id={id}
   class:list={[
@@ -24,6 +24,24 @@ const computedLink = link ? "/categories/" : "";
 >
   <p>{text}</p>
 </a>
+}
+
+{
+!computedLink && <div
+  href=`${computedLink}${link}`
+  id={id}
+  class:list={[
+    `label`,
+    { label__black: theme === "black" },
+    { label__white: theme === "white" },
+    { label__universal: theme === "universal" },
+    { label__universal__date: theme === "universal-date" },
+  ]}
+>
+  <p>{text}</p>
+</div>
+
+}
 
 <style lang="scss">
   @use "@/assets/sass/components/_labels.scss";
