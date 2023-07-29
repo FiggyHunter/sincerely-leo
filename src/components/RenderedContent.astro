@@ -13,10 +13,12 @@ marked
   .use(gfmHeadingId({ prefix: "" }));
 import Header from "./Header.astro";
 import Labels from "./Labels.astro";
+import { getSrcSetFromImage } from "@/api/images/getSrcSetFromImage";
 
 // TO:DO need a interface for props
 
 const { post } = Astro.props;
+
 const categories = getCategoriesFromPost(post);
 
 const content = marked.parse(post.attributes.Content);
@@ -25,7 +27,10 @@ const content = marked.parse(post.attributes.Content);
 <div class="blog-post__image-ctr">
   <Image
     class="blog-post__image"
-    src="https://media.discordapp.net/attachments/1125381201557983274/1131995334969671730/kat.png?width=704&height=663"
+    src={`https://cdn.leotg.com` +
+      post.attributes.cover_image.data.attributes.formats.large.url}
+    srcset={getSrcSetFromImage(post.attributes.cover_image)}
+    sizes="(max-width: 500px) 25vw, (max-width: 1200px) 50vw, 100vw"
     height={800}
     width={800}
     loading={"eager"}
