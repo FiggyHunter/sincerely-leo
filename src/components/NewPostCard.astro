@@ -8,13 +8,16 @@ const { post, categories } = await Astro.props;
 
 <article class="new">
   <div class="image">
-    <Image
-      width={600}
-      height={600}
-      alt="cover image for post"
-      class="new__image"
-      src={post.attributes.cover_url}
-    />
+    <a href={`/blog/${post.attributes.Slug}`}>
+      <Image
+        width={600}
+        height={600}
+        alt="cover image for post"
+        class="new__image"
+        src={`https://cdn.leotg.com` +
+          post.attributes.cover_image.data.attributes.formats.medium.url}
+      />
+    </a>
     <div class="new__labels">
       <div class="new__date">
         <Labels
