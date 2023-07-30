@@ -8,7 +8,7 @@
     text-align: center;
     color: $colors-nav-background;
     height: fit-content;
-    font-size: 2rem;
+    font-size: clamp(1.45rem, 1.45rem + 1vw, 2.4rem);
     justify-self: center;
   }
   padding: 7rem 0rem;
