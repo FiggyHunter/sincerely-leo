@@ -23,6 +23,7 @@ body {
   transition: background-color 0.3s;
 }
 
+div,
 p,
 h1,
 h2,
@@ -30,7 +31,7 @@ h3,
 h4,
 h5 {
   &:hover {
-    cursor: default;
+    cursor: url("/normal.png"), auto;
   }
 }
 
@@ -38,4 +39,14 @@ h5 {
   &::selection {
     background-color: #ff00c879;
   }
+}
+
+body {
+  cursor: url("/normal.png"), auto;
+}
+
+a,
+button,
+svg {
+  cursor: url("/pointer.png"), pointer;
 }
