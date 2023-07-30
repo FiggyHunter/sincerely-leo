@@ -18,6 +18,7 @@
     p {
       font-family: $fonts-monty-medium;
       line-height: 1.75;
+      font-size: clamp(0.8rem, 0.8rem + 1vw, 1.25rem);
     }
     h2 {
       font-family: $fonts-monty-extra-bold;
@@ -25,7 +26,7 @@
       margin: 3rem 0 1.5rem 0rem;
     }
     h3 {
-      font-family: $fonts-monty-semibold;
+      font-family: $fonts-monty-bold;
       font-size: clamp(1.6rem, 1.6rem + 1vw, 2rem);
       margin: 3rem 0 1.5rem 0rem;
     }
@@ -181,11 +182,13 @@
 
 .share {
   p {
-    letter-spacing: 0.5rem;
-    margin-bottom: 1rem;
+    letter-spacing: 0.25rem;
+
     font-family: $fonts-monty-semibold;
     font-size: 1.25rem;
     @media screen and (min-width: helpers-pxToRem(1200px)) {
+      margin-bottom: 1rem;
+      letter-spacing: 0.5rem;
       transform: rotate(90deg);
     }
   }
