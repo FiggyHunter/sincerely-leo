@@ -60,7 +60,6 @@ header {
     display: none;
     .moon,
     .sun {
-      margin-left: 1rem;
       display: grid;
       width: 24px;
       height: 24px;
@@ -100,7 +99,7 @@ header {
   .sun {
     transition: fill 0.3s;
     &:hover {
-      cursor: pointer;
+      cursor: $cursors-pointer;
       fill: $colors-accent-color;
     }
     fill: $colors-nav-text;
@@ -168,7 +167,7 @@ header {
 
 .div {
   &:hover {
-    cursor: pointer;
+    cursor: $cursors-pointer;
   }
   display: grid;
   z-index: 100;
@@ -176,8 +175,8 @@ header {
   position: fixed;
   bottom: 1rem;
   right: 1rem;
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 0.5rem;
   background-color: $colors-nav-background;
   border: helpers-pxToRem(1.5px) solid $colors-nav-text;
@@ -191,11 +190,11 @@ header {
       fill: $colors-nav-text;
     }
   }
-  @media screen and (min-width: helpers-pxToRem(900px)) {
-    bottom: 4rem;
-    right: 5rem;
-    width: 3rem;
-    height: 3rem;
+  @media screen and (min-width: helpers-pxToRem(700px)) {
+    bottom: 2rem;
+    right: 3rem;
+    width: 3.3rem;
+    height: 3.3rem;
     border-radius: 0.75rem;
   }
 }
@@ -319,4 +318,21 @@ header {
 
 .ease-in-leave-active {
   animation: ease-out-arrow 0.5s;
+}
+
+.camera {
+  fill: $colors-nav-text;
+  transition: fill 0.3s;
+
+  &-container {
+    width: 1.75rem;
+    position: relative;
+    @media screen and (min-width: helpers-pxToRem(900px)) {
+      margin-bottom: 0.3rem;
+    }
+  }
+
+  &-link:hover .camera {
+    fill: $colors-accent-color;
+  }
 }

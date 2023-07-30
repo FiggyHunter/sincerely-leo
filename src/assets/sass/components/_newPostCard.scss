@@ -67,8 +67,14 @@
   &__arrow {
     place-self: center end;
     background-color: $colors-nav-background;
-    padding: 0.6rem;
+    padding: clamp(0.4rem, 0.4rem + 0.2vw, 0.7rem);
     border-radius: 100rem;
+    width: clamp(1.2rem, 1.2rem + 1vw, 4rem);
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
   }
 }
 .arrow-svg {
