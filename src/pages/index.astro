@@ -48,6 +48,7 @@ const Quote = await getRandomQuote(getQuotes());
         <LinkCard
           text={`About me >>`}
           image={`https://wallpapers.com/images/featured/cute-dog-brtwwfga72pilv0j.jpg`}
+          link={"about"}
         />
       </div>
       <h3 class="headline">Recent blog posts</h3>
@@ -60,7 +61,8 @@ const Quote = await getRandomQuote(getQuotes());
                 post={post}
                 categories={getCategoriesFromPost(post)}
                 image={
-                  "http://cdn.leotg.com/uploads/thumbnail_ai_generated_7771756_1280_87ed9891ff.webp"
+                  `https://cdn.leotg.com` +
+                  post.attributes.cover_image.data.attributes.formats.medium.url
                 }
               />
             ))
