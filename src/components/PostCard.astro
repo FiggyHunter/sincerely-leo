@@ -2,24 +2,30 @@
 import { slugify } from "@/utils/format";
 import Labels from "./Labels.astro";
 import { Image } from "astro:assets";
+import "@/assets/sass/components/_PostCard.scss";
+import { getSrcSetFromImage } from "@/api/images/getSrcSetFromImage";
+
 interface Props {
   post: any;
   categories: any;
-  image: string;
 }
 
-const { post, categories, image } = Astro.props;
+const { post, categories } = Astro.props;
 const text = post.attributes.Title;
+
+const srcset = getSrcSetFromImage(post.attributes.cover_image);
 ---
 
 <article class="post">
   <a href=`/blog/${post.attributes.Slug}`>
     <Image
-      height={500}
-      width={500}
+      height={300}
+      width={300}
       class="post__image"
-      src={image}
+      src={"/"}
       alt="blog post image"
+      srcset={srcset}
+      sizes="(max-width: 500px) 25vw, (max-width: 1200px) 50vw, 100vw"
     />
   </a>
   <div class="post__details">
@@ -41,8 +47,4 @@ const text = post.attributes.Title;
       <a href=`/blog/${post.attributes.Slug}`>See post >></a>
     </div>
   </div>
-
-  <style lang="scss">
-    @use "@/assets/sass/components/_PostCard.scss";
-  </style>
 </article>
