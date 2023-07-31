@@ -9,6 +9,7 @@ import { getCategoriesFromPost } from "@/api/posts/getCategoriesFromPost";
 
 import "@/assets/sass/pages/_categoriesPosts.scss";
 import { sortPosts } from "@/api/posts/sortedPosts";
+import { getSrcSetFromImage } from "@/api/images/getSrcSetFromImage";
 
 export async function getStaticPaths() {
   //Fetching posts
@@ -39,11 +40,7 @@ const sortedPosts = await sortPosts(posts);
     <div class="posts">
       {
         sortedPosts.map((post) => (
-          <PostCard
-            {post}
-            categories={getCategoriesFromPost(post)}
-            image={`/placeholder-social.jpg`}
-          />
+          <PostCard {post} categories={getCategoriesFromPost(post)} />
         ))
       }
 

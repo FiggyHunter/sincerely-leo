@@ -8,6 +8,7 @@ import { getPosts } from "@/api/posts/getPosts";
 import "@/assets/sass/pages/_allPosts.scss";
 import Pagination from "@/components/Pagination.astro";
 import { sortPosts } from "@/api/posts/sortedPosts";
+import { getSrcSetFromImage } from "@/api/images/getSrcSetFromImage";
 
 const posts = await getPosts();
 
@@ -27,11 +28,7 @@ const { page } = Astro.props;
       <h1 class="all-posts__headline">All blog posts</h1>
       {
         page.data.map((post) => (
-          <PostCard
-            post={post}
-            categories={getCategoriesFromPost(post)}
-            image={"https://picsum.photos/400/500"}
-          />
+          <PostCard post={post} categories={getCategoriesFromPost(post)} />
         ))
       }
     </main>
@@ -41,7 +38,4 @@ const { page } = Astro.props;
       pageNumber={page.currentPage}
     />
   </MainLayout>
-  <style lang="scss"></style>
-
-
 </html>
