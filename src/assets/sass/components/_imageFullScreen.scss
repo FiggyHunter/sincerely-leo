@@ -35,7 +35,7 @@ h1 {
 }
 .image-viewer {
   display: grid;
-  grid-template-rows: auto max-content;
+  grid-template-rows: min-content min-content;
   @media screen and (min-width: 1200px) {
     grid-template-rows: unset;
     grid-template-columns: auto 1fr;
@@ -91,7 +91,10 @@ h1 {
 
   img {
     place-self: center start;
-    max-height: 90vh;
+    max-height: 50vh;
+    @media screen and (min-width: helpers-pxToRem(1200px)) {
+      max-height: 80vh;
+    }
     max-width: 90vw;
     width: 100%;
   }
@@ -109,7 +112,7 @@ h1 {
   }
 }
 
-@keyframes fade-in {
+@keyframes show-in {
   0% {
     opacity: 0;
   }
@@ -119,7 +122,7 @@ h1 {
   }
 }
 
-@keyframes fade-out {
+@keyframes show-out {
   0% {
     opacity: 1;
   }
@@ -130,9 +133,9 @@ h1 {
 }
 
 .show-enter-active {
-  animation: fade-in 0.6s;
+  animation: show-in 0.6s;
 }
 
 .show-leave-active {
-  animation: fade-out 0.4s;
+  animation: show-out 0.4s;
 }
