@@ -1,5 +1,4 @@
 ---
-import Footer from "../components/Footer.astro";
 import MainLayout from "@/layouts/MainLayout.astro";
 import NewPostCard from "@/components/NewPostCard.astro";
 import LinkCard from "@/components/LinkCard.astro";
@@ -13,6 +12,7 @@ import { getQuotes } from "@/api/quotes/getQuotes";
 import { getRandomQuote } from "@/api/quotes/getRandomQuote";
 
 import "@/assets/sass/pages/_homePage.scss";
+
 // Fetch posts
 const posts = await getPosts();
 
@@ -40,14 +40,14 @@ const Quote = await getRandomQuote(getQuotes());
       <div class="card-1">
         <LinkCard
           text={`My Photography >>`}
-          image={"https://www.k9ofmine.com/wp-content/uploads/2018/07/beautiful-dog-breed-list.jpg"}
+          image={"/photography.webp"}
           link="photo"
         />
       </div>
       <div class="card-2">
         <LinkCard
           text={`About me >>`}
-          image={`https://wallpapers.com/images/featured/cute-dog-brtwwfga72pilv0j.jpg`}
+          image={`/about-home.webp`}
           link={"about"}
         />
       </div>
@@ -57,14 +57,7 @@ const Quote = await getRandomQuote(getQuotes());
           posts
             .slice(0, 4)
             .map((post) => (
-              <PostCard
-                post={post}
-                categories={getCategoriesFromPost(post)}
-                image={
-                  `https://cdn.leotg.com` +
-                  post.attributes.cover_image.data.attributes.formats.medium.url
-                }
-              />
+              <PostCard post={post} categories={getCategoriesFromPost(post)} />
             ))
         }
       </div>
@@ -75,10 +68,5 @@ const Quote = await getRandomQuote(getQuotes());
       <h4 class="quote-corner__quote">"{Quote.quote}"</h4>
       <h5 class="quote-corner__author">- {Quote.author}</h5>
     </div>
-    <style>
-      h1 {
-        font-size: 2rem;
-      }
-    </style>
   </MainLayout>
 </html>
