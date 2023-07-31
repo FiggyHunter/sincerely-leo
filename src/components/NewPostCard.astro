@@ -4,18 +4,24 @@ import Labels from "./Labels.astro";
 import { Image } from "astro:assets";
 
 const { post, categories } = await Astro.props;
+
+import "@/assets/sass/components/_newPostCard.scss";
+import { getSrcSetFromImage } from "@/api/images/getSrcSetFromImage";
 ---
 
 <article class="new">
   <div class="image">
     <a href={`/blog/${post.attributes.Slug}`}>
       <Image
-        width={600}
-        height={600}
+        width={"700px"}
+        height={"700px"}
         alt="cover image for post"
         class="new__image"
-        src={`https://cdn.leotg.com` +
-          post.attributes.cover_image.data.attributes.formats.medium.url}
+        src={`/`}
+        srcset={getSrcSetFromImage(post.attributes.cover_image)}
+        sizes={"(max-width: 500px) 25vw, (max-width: 1200px) 50vw, 100vw"}
+        loading={"eager"}
+        decoding={"auto"}
       />
     </a>
     <div class="new__labels">
@@ -41,7 +47,11 @@ const { post, categories } = await Astro.props;
       {post.attributes.Title}
     </a>
 
-    <a href={`/blog/${post.attributes.Slug}`} class="new__arrow">
+    <a
+      aria-label="open newest blog post"
+      href={`/blog/${post.attributes.Slug}`}
+      class="new__arrow"
+    >
       <svg
         width="10"
         height="10"
@@ -93,8 +103,4 @@ const { post, categories } = await Astro.props;
       >
     </a>
   </div>
-
-  <style lang="scss">
-    @use "@/assets/sass/components/_newPostCard.scss";
-  </style>
 </article>
