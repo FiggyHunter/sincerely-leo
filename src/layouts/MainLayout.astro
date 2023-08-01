@@ -2,22 +2,25 @@
 import BaseHead from "@/components/BaseHead.astro";
 import Footer from "@/components/Footer.astro";
 import MainNavigation from "@/components/navigation/MainNavigation.vue";
+import "@/assets/sass/layouts/_mainLayout.scss";
 
 // props go here, and flow into the main head
 // don't forget to render the main head inside of the mainlayout above the body!
+
+const { title, description, image } = Astro.props;
 ---
 
 <html lang="en">
-  <!-- MainHead {title} {desc} -->
-  <BaseHead title="test" />
+  <BaseHead
+    title={title}
+    description="Welcome to my blog! I write about self-improvement, coding, books, podcasts and more!"
+  />
+
   <body>
-    <MainNavigation client:only />
+    <MainNavigation client:idle />
     <div class="limiter">
       <slot />
-      <Footer />
     </div>
-    <style lang="scss">
-      @use "../assets/sass/layouts/_mainLayout.scss" as *;
-    </style>
+    <Footer />
   </body>
 </html>
