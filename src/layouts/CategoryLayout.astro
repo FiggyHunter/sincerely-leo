@@ -7,10 +7,11 @@ import "@/assets/sass/layouts/_categoryLayout.scss";
 
 // props go here, and flow into the main head
 // don't forget to render the main head inside of the mainlayout above the body!
+const { title, description, image } = Astro.props;
 ---
 
 <html lang="en">
-  <BaseHead title="test" />
+  <BaseHead title={title} description={description} image={image} />
 
   <body>
     <MainNavigation client:load />
