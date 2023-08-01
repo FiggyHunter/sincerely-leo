@@ -3,20 +3,20 @@ import BaseHead from "@/components/BaseHead.astro";
 import Footer from "@/components/Footer.astro";
 import MainNavigation from "@/components/navigation/MainNavigation.vue";
 
+import "@/assets/sass/layouts/_categoryLayout.scss";
+
 // props go here, and flow into the main head
 // don't forget to render the main head inside of the mainlayout above the body!
 ---
 
 <html lang="en">
   <BaseHead title="test" />
+
   <body>
-    <MainNavigation client:only />
+    <MainNavigation client:load />
     <div class="category-limiter">
       <slot />
       <Footer />
     </div>
-    <style lang="scss">
-      @use "../assets/sass/layouts/_categoryLayout.scss" as *;
-    </style>
   </body>
 </html>

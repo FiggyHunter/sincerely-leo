@@ -9,6 +9,8 @@ interface Props {
 const { id, text, theme, link } = Astro.props;
 
 const computedLink = link ? "/categories/" : undefined;
+
+import "@/assets/sass/components/_labels.scss";
 ---
 
 { computedLink && <a
@@ -41,8 +43,4 @@ const computedLink = link ? "/categories/" : undefined;
   <p>{text}</p>
 </div>
 
-}
 
-<style lang="scss">
-  @use "@/assets/sass/components/_labels.scss";
-</style>
