@@ -6,8 +6,8 @@
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="15"
+      width="22"
+      height="22"
       viewBox="0 0 16 15"
       fill="none"
       class="moon"
@@ -25,7 +25,7 @@
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="20"
+      width="22"
       height="22"
       viewBox="0 0 44 44"
       fill="none"
@@ -71,7 +71,7 @@ button {
   background: none;
   border: none;
   :hover {
-    cursor: pointer;
+    cursor: url("/pointer.png");
   }
 }
 </style>
