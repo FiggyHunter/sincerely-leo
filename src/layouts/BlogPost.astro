@@ -3,26 +3,27 @@ import BaseHead from "../components/BaseHead.astro";
 import MainNavigation from "@/components/navigation/MainNavigation.vue";
 import Footer from "@/components/Footer.astro";
 import "@/assets/sass/layouts/_blogLayout.scss";
+import PostHead from "@/components/PostHead.astro";
 
-// const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { post } = Astro.props;
+
+const title = post.attributes.Title;
+const description = post.attributes.Description;
+const image = post.attributes.cover_image.data.attributes.formats.thumbnail.url;
+const date = post.attributes.publishedAt;
 ---
 
 <html lang="en">
-  <BaseHead title="test" />
+  <PostHead title={title} description={description} image={image} date={date} />
 
   <script src="@/js/prism.js"></script>
 
-
   <body class="blog">
-    <MainNavigation client:only />
+    <MainNavigation client:load />
     <main class="blog-post">
       <slot />
     </main>
 
-    <style lang="scss">
-      @use "../assets/sass/_shared.scss" as *;
-      @use "../assets/sass/layouts/_blogLayout.scss" as *;
-    </style>
     <Footer />
   </body>
 </html>

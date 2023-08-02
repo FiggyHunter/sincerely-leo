@@ -11,10 +11,7 @@ const { title, description, image } = Astro.props;
 ---
 
 <html lang="en">
-  <BaseHead
-    title={title}
-    description="Welcome to my blog! I write about self-improvement, coding, books, podcasts and more!"
-  />
+  <BaseHead title={title} description={description} image={image} />
 
   <body>
     <MainNavigation client:idle />
