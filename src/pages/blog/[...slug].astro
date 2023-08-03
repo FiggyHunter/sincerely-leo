@@ -5,20 +5,16 @@ import RenderedContent from "../../components/RenderedContent.astro";
 import BlogPost from "@/layouts/BlogPost.astro";
 import { getPosts } from "@/api/posts/getPosts.ts";
 
-export async function getStaticPaths() {
-  //Fetching posts
-  const posts = await getPosts();
+//Fetching posts
+const posts = await getPosts();
 
-  //generating
-  return posts.map((post) => ({
-    params: { slug: slugify(post.attributes.Title) },
-    props: post,
-  }));
-}
+console.warn(Astro.params);
 
-const post = Astro.props;
+const { slug } = Astro.params;
+const post = posts.find((post) => slugify(post.attributes.Title) === slug);
+if (!post) return Astro.redirect("/404");
 ---
 
-<BlogPost>
+<BlogPost {post}>
   <RenderedContent {post} />
 </BlogPost>

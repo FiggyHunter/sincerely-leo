@@ -1,0 +1,64 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import PostCard from "@/components/PostCard.astro";
+
+import { getCategoriesFromPost } from "@/api/posts/getCategoriesFromPost";
+import { getPosts } from "@/api/posts/getPosts";
+
+import "@/assets/sass/pages/_allPosts.scss";
+import Pagination from "@/components/Pagination.astro";
+import { sortPosts } from "@/api/posts/sortedPosts";
+import { getSrcSetFromImage } from "@/api/images/getSrcSetFromImage";
+import { paginate } from "@/ts/paginate.ts";
+
+if (!Astro.url.searchParams.get("page")) {
+  return Astro.redirect("/blog?page=1");
+}
+
+const posts = await getPosts();
+const sortedPosts = await sortPosts(posts);
+
+const currentPage = Number(Astro.url.href.match(/\d+$/)?.[0]);
+const displayedPosts = 4;
+const totalPages = Math.ceil(sortedPosts.length / displayedPosts);
+
+if (currentPage > totalPages) {
+  return Astro.redirect("/blog/?page=1");
+}
+
+const pageData = paginate(sortedPosts, Number(currentPage), displayedPosts);
+
+const page = {
+  currentPage: currentPage,
+  url: {
+    prev: pageData.previousPage
+      ? `${Astro.url.href.slice(0, -1)}${pageData.previousPage}`
+      : null,
+    next: pageData.nextPage
+      ? `${Astro.url.href.slice(0, -1)}${pageData.nextPage}`
+      : null,
+  },
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <MainLayout
+    title="Sincerely, Leo | Blog posts that improve everyday life"
+    description="Discover all blog posts about self-improvement, coding, books, podcasts and more! Improve your everyday life today!"
+  >
+    <main class="all-posts">
+      <h1 class="all-posts__headline">All blog posts</h1>
+      {
+        pageData.posts.map((post) => (
+          <PostCard post={post} categories={getCategoriesFromPost(post)} />
+        ))
+      }
+    </main>
+    <Pagination
+      prevUrl={page.url.prev}
+      nextUrl={page.url.next}
+      pageNumber={page.currentPage}
+    />
+  </MainLayout>
+</html>

@@ -1,20 +1,19 @@
 ---
 import CategoryLayout from "@/layouts/CategoryLayout.astro";
 import { getPhotographs } from "@/api/photographs/getPhotographs";
-import { getPhotographUrl } from "@/api/photographs/getPhotographUrl";
 
-import { Image } from "astro:assets";
 import ImageFullScreen from "@/components/ImageFullScreen.vue";
 
 const photos = await getPhotographs();
 
-console.log(photos[0].attributes.metadata);
+// console.log(photos[0].attributes.metadata);
 ---
 
-<CategoryLayout>
-  <ImageFullScreen client:only />
+<CategoryLayout
+  title="Sincerely, Leo | Photo gallery with amazing pictures"
+  description="I write about self-improvement, coding, books, podcasts and more! I post my amateur photos here! Welcome to the blog!"
+>
+  <ImageFullScreen client:load />
 </CategoryLayout>
 
-<script>
-  document.querySelectorAll(".image-gallery__image img")[0].loading = "auto";
-</script>
+<script></script>

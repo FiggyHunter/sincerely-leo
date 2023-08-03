@@ -67,6 +67,10 @@
       width: 80%;
     }
     width: 90%;
+
+    @media screen and (min-width: helpers-pxToRem(550px)) {
+      width: 70%;
+    }
   }
   &__image {
     width: 100%;

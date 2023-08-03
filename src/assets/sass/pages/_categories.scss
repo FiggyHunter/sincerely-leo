@@ -16,7 +16,7 @@
   justify-content: space-evenly;
   grid-template-columns: repeat(auto-fit, 300px);
   @media screen and (min-width: helpers-pxToRem(700px)) {
-    grid-template-columns: repeat(auto-fit, 300px);
+    grid-template-columns: repeat(auto-fit, 275px);
   }
   @media screen and (min-width: helpers-pxToRem(1200px)) {
     grid-template-columns: repeat(auto-fit, 400px);

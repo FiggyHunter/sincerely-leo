@@ -11,23 +11,25 @@ import "@/assets/sass/pages/_categoriesPosts.scss";
 import { sortPosts } from "@/api/posts/sortedPosts";
 import { getSrcSetFromImage } from "@/api/images/getSrcSetFromImage";
 
-export async function getStaticPaths() {
-  //Fetching posts
-  const categories = await getCategories();
+//Fetching posts
+const categories = await getCategories();
+const { slug } = Astro.params;
 
-  //generating
-  return categories.map((category) => ({
-    params: { slug: slugify(category.category_name) },
-    props: category,
-  }));
-}
-const category = Astro.props;
+const category = categories.find(
+  (category) => slugify(category.category_name) === slug
+);
+
+if (!category) return Astro.redirect("/404");
 
 const posts = await getPostsFromCategory(category.category_name);
 const sortedPosts = await sortPosts(posts);
 ---
 
-<MainLayout>
+<MainLayout
+  title={`Sincerely, Leo. | Posts about ${category.category_name}`}
+  description={`Leonardo's Posts about ${category.category_name}`}
+  image={"/categories.webp"}
+>
   <main class="categories-posts">
     {
       sortedPosts.length !== 0 && (
