@@ -35,7 +35,7 @@ h3,
 h4,
 h5 {
   &:hover {
-    cursor: url("/normal.png"), auto;
+    cursor: url("/normal.png") 10 10, auto;
   }
 }
 
@@ -46,11 +46,11 @@ h5 {
 }
 
 body {
-  cursor: url("/normal.png"), auto;
+  cursor: url("/normal.png") 10 10, auto;
 }
 
 a,
 button,
 svg {
-  cursor: url("/pointer.png"), pointer;
+  cursor: url("/pointer.png") 10 10, pointer;
 }
