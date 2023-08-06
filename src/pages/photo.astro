@@ -5,13 +5,12 @@ import { getPhotographs } from "@/api/photographs/getPhotographs";
 import ImageFullScreen from "@/components/ImageFullScreen.vue";
 
 const photos = await getPhotographs();
-
-// console.log(photos[0].attributes.metadata);
 ---
 
 <CategoryLayout
-  title="Sincerely, Leo | Photo gallery with amazing pictures"
-  description="I write about self-improvement, coding, books, podcasts and more! I post my amateur photos here! Welcome to the blog!"
+  title="Sincerely, Leo | Photo gallery that tells a story"
+  description="Embark on a visual journey through my camera's lens. See the new way in which I like to tell stories - photography."
+  img="/photography.webp"
 >
   <ImageFullScreen client:load />
 </CategoryLayout>
