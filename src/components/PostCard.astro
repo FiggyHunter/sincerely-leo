@@ -4,13 +4,15 @@ import Labels from "./Labels.astro";
 import { Image } from "astro:assets";
 import "@/assets/sass/components/_PostCard.scss";
 import { getSrcSetFromImage } from "@/api/images/getSrcSetFromImage";
+import { getCategoriesFromPost } from "@/api/posts/getCategoriesFromPost";
+import type Post from "@/api/types/Post";
 
 interface Props {
-  post: any;
-  categories: any;
+  post: Post;
 }
 
-const { post, categories } = Astro.props;
+const { post } = Astro.props;
+const categories = await getCategoriesFromPost(post);
 const text = post.attributes.Title;
 
 const srcset = getSrcSetFromImage(post.attributes.cover_image);
