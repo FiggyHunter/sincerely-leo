@@ -1,13 +1,14 @@
 ---
+import type Quote from "@/api/types/Quote";
+import type Category from "@/api/types/Category";
+
 import MainLayout from "@/layouts/MainLayout.astro";
 import NewPostCard from "@/components/NewPostCard.astro";
 import LinkCard from "@/components/LinkCard.astro";
 import PostCard from "@/components/PostCard.astro";
 
-// api
 import { getPosts } from "@/api/posts/getPosts.ts";
 import { getLatestPost } from "@/api/posts/sortedPosts";
-import { getCategoriesFromPost } from "@/api/posts/getCategoriesFromPost";
 import { getQuotes } from "@/api/quotes/getQuotes";
 import { getRandomQuote } from "@/api/quotes/getRandomQuote";
 
@@ -21,7 +22,7 @@ const latestPost = await getLatestPost(posts, { sort: true });
 
 // Calculate categories
 const latestCategories = latestPost.attributes.categories.data.map(
-  (category) => category.attributes.category_name
+  (category: Category) => category.attributes.category_name
 );
 
 const Quote = await getRandomQuote(getQuotes());
@@ -30,7 +31,8 @@ const Quote = await getRandomQuote(getQuotes());
 <html>
   <MainLayout
     title="Sincerely, Leo | Self-Improvement, Coding, Books, Podcasts, and More"
-    description="I write about self-improvement, coding, books, podcasts and more! I post my amateur photos here! Welcome to the blog!"
+    description="This is a place where I talk about leveling up in life, the coding hustle, favorite books, top-notch podcasts, and yes, you'll even find my amateur photography attempts. It's all here, laid-back and real. Let's learn and explore together!"
+    image="/blog_placeholder.png"
   >
     <main class="hero">
       <div class="main-text">
@@ -54,22 +56,16 @@ const Quote = await getRandomQuote(getQuotes());
           link={"about"}
         />
       </div>
-      <h3 class="headline">Recent blog posts</h3>
+      <h2 class="h3">Recent blog posts</h2>
       <div class="recent-posts">
-        {
-          posts
-            .slice(0, 4)
-            .map((post) => (
-              <PostCard post={post} categories={getCategoriesFromPost(post)} />
-            ))
-        }
+        {posts.slice(0, 4).map((post) => <PostCard post={post} />)}
       </div>
     </main>
 
     <div class="quote-corner">
-      <h4>Quote Corner</h4>
-      <h4 class="quote-corner__quote">"{Quote.quote}"</h4>
-      <h5 class="quote-corner__author">- {Quote.author}</h5>
+      <h3>Quote Corner</h3>
+      <h3 class="quote-corner__quote">"{Quote.quote}"</h3>
+      <h4 class="quote-corner__author">- {Quote.author}</h4>
     </div>
   </MainLayout>
 </html>
