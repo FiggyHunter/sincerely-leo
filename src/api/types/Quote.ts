@@ -1,11 +1,5 @@
 interface Quote {
-  id: number;
-  attributes: {
-    Quote: string;
-    Author: string;
-    createdAt: string;
-    updatedAt: string;
-    publishedAt: string;
-  };
+  quote: String;
+  author: String;
 }
 export default Quote;
