@@ -1,9 +1,13 @@
 ---
+import type Post from "@/api/types/Post";
+
 import { marked } from "marked";
 import { gfmHeadingId } from "marked-gfm-heading-id";
 import { getCategoriesFromPost } from "@/api/posts/getCategoriesFromPost";
 import "@/assets/sass/base/prism.scss";
 import { Image } from "astro:assets";
+import { getSrcSetFromImage } from "@/api/images/getSrcSetFromImage";
+import { slugify } from "@/utils/format";
 marked
   .use({
     mangle: false,
@@ -11,11 +15,13 @@ marked
     gfm: true,
   })
   .use(gfmHeadingId({ prefix: "" }));
-import Header from "./Header.astro";
+
 import Labels from "./Labels.astro";
-import { getSrcSetFromImage } from "@/api/images/getSrcSetFromImage";
 
 // TO:DO need a interface for props
+interface Props {
+  post: Post;
+}
 
 const { post } = Astro.props;
 
@@ -24,7 +30,7 @@ const categories = getCategoriesFromPost(post);
 const content = marked.parse(post.attributes.Content);
 ---
 
-<div class="blog-post__image-ctr">
+<section class="blog-post__image-ctr">
   <Image
     class="blog-post__image"
     src={`https://cdn.leotg.com` +
@@ -37,14 +43,18 @@ const content = marked.parse(post.attributes.Content);
     alt="cover image for blog post"
   />
   <div class="blog-post__overlay"></div>
-</div>
+</section>
 
-<div class="blog-post__limiter">
+<section class="limiter">
   <div class="blog-post__description">
     <div class="labels">
       {
         categories.map((category) => (
-          <Labels text={category} theme={"universal"} />
+          <Labels
+            link={slugify(category)}
+            text={category}
+            theme={"universal"}
+          />
         ))
       }
     </div>
@@ -161,7 +171,7 @@ const content = marked.parse(post.attributes.Content);
   </div>
 
   <div class="copied">You have copied the URL of the blog post!</div>
-</div>
+</section>
 
 <script>
   // fetching all headings (h3) and displaying them in aside container, for desktop devices only
@@ -270,7 +280,7 @@ const content = marked.parse(post.attributes.Content);
       const currentURL = window.location;
       try {
         await navigator.clipboard.writeText(currentURL);
-        console.log("Text copied to clipboard successfully!");
+
         notification.classList.add("copied--visible");
         setTimeout(() => {
           notification.classList.remove("copied--visible");
