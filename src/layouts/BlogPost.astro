@@ -1,9 +1,12 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
+import { getRelatedPosts } from "@/api/posts/getRelatedPosts";
 import MainNavigation from "@/components/navigation/MainNavigation.vue";
+
 import Footer from "@/components/Footer.astro";
-import "@/assets/sass/layouts/_blogLayout.scss";
 import PostHead from "@/components/PostHead.astro";
+import PostCard from "@/components/PostCard.astro";
+
+import "@/assets/sass/layouts/_blogLayout.scss";
 
 const { post } = Astro.props;
 
@@ -11,6 +14,8 @@ const title = post.attributes.Title;
 const description = post.attributes.Description;
 const image = post.attributes.cover_image.data.attributes.formats.thumbnail.url;
 const date = post.attributes.publishedAt;
+
+const relatedPosts = await getRelatedPosts(post, 2);
 ---
 
 <html lang="en">
@@ -23,7 +28,12 @@ const date = post.attributes.publishedAt;
     <main class="blog-post">
       <slot />
     </main>
-
+    <div class="more-posts limiter">
+      <h6>More posts</h6>
+      <div class="more-posts__rendered">
+        {relatedPosts.map((relatedPost) => <PostCard post={relatedPost} />)}
+      </div>
+    </div>
     <Footer />
   </body>
 </html>
