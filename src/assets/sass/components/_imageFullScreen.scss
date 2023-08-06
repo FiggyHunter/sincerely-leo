@@ -62,13 +62,18 @@ h1 {
     width: 100%;
     align-self: start;
     align-content: center;
+    @media screen and (min-width: helpers-pxToRem(1200px)) {
+      margin-left: 2rem;
+    }
 
     &-info {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-
-      align-items: center;
+      text-align: center;
+      @media screen and (min-width: helpers-pxToRem(1200px)) {
+        text-align: left;
+      }
       span {
         font-family: $fonts-monty-bold;
         color: $colors-accent-color;

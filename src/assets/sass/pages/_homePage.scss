@@ -78,7 +78,7 @@
       "recent-posts recent-posts recent-posts";
   }
   gap: 1rem;
-  h3 {
+  .h3 {
     font-family: $fonts-grand-bold;
     color: $colors-nav-background;
     font-size: clamp(1.5rem, 1.5rem + 2vw, 3rem);

@@ -1,4 +1,15 @@
 @use "../shared" as *;
+.limiter {
+  margin: 0 auto;
+  @media screen and (max-width: helpers-pxToRem(1200px)) {
+    width: 80%;
+  }
+  width: 90%;
+
+  @media screen and (min-width: helpers-pxToRem(550px)) {
+    width: 80%;
+  }
+}
 
 .blog-post {
   h1 {
@@ -61,17 +72,7 @@
 
   color: $colors-primary-text;
   z-index: 10;
-  &__limiter {
-    margin: 0 auto;
-    @media screen and (max-width: helpers-pxToRem(1200px)) {
-      width: 80%;
-    }
-    width: 90%;
 
-    @media screen and (min-width: helpers-pxToRem(550px)) {
-      width: 70%;
-    }
-  }
   &__image {
     width: 100%;
     max-width: 100%;
@@ -126,7 +127,7 @@
   @media screen and (min-width: helpers-pxToRem(1200px)) {
     display: grid;
     grid-template-columns: 2fr 4fr 2fr;
-    gap: 2rem;
+    gap: 3rem;
   }
 }
 
@@ -138,14 +139,16 @@
 
   &__headline {
     font-family: $fonts-monty-bold;
-    text-align: center;
+    text-align: left;
     margin-bottom: 1.5rem;
     color: $colors-nav-background;
+    font-size: clamp(1rem, 1rem + 1vw, 1.5rem);
   }
   &__headlines {
+    width: 80%;
     display: grid;
     justify-content: center;
-    text-align: center;
+    text-align: left;
     font-family: $fonts-monty-semibold;
     font-size: 1rem;
     color: $colors-nav-background;
@@ -270,5 +273,26 @@
 
   100% {
     opacity: 0;
+  }
+}
+
+.more-posts {
+  width: 80%;
+  margin: 0 auto;
+
+  h6 {
+    color: $colors-primary-text;
+    text-align: center;
+    font-family: $fonts-monty-extra-bold;
+    font-size: clamp(1.5rem, 1.5rem + 1vw, 2.5rem);
+    text-transform: uppercase;
+    margin: clamp(5rem, 5rem + 1vw, 10rem) 0;
+  }
+  &__rendered {
+    display: grid;
+    grid-template-columns: 1fr;
+    @media screen and (min-width: helpers-pxToRem(1000px)) {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 }
