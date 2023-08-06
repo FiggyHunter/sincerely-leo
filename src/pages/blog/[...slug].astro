@@ -8,13 +8,11 @@ import { getPosts } from "@/api/posts/getPosts.ts";
 //Fetching posts
 const posts = await getPosts();
 
-console.warn(Astro.params);
-
 const { slug } = Astro.params;
 const post = posts.find((post) => slugify(post.attributes.Title) === slug);
 if (!post) return Astro.redirect("/404");
 ---
 
-<BlogPost {post}>
+<BlogPost post={post}>
   <RenderedContent {post} />
 </BlogPost>

@@ -1,15 +1,15 @@
 ---
-import PostCard from "@/components/PostCard.astro";
-import MainLayout from "@/layouts/MainLayout.astro";
+import type Post from "@/api/types/Post";
 
 import { slugify } from "@/utils/format";
 import { getCategories } from "@/api/categories/getCategories";
 import { getPostsFromCategory } from "@/api/posts/getPostsFromCategory";
-import { getCategoriesFromPost } from "@/api/posts/getCategoriesFromPost";
+import { sortPosts } from "@/api/posts/sortedPosts";
+
+import PostCard from "@/components/PostCard.astro";
+import MainLayout from "@/layouts/MainLayout.astro";
 
 import "@/assets/sass/pages/_categoriesPosts.scss";
-import { sortPosts } from "@/api/posts/sortedPosts";
-import { getSrcSetFromImage } from "@/api/images/getSrcSetFromImage";
 
 //Fetching posts
 const categories = await getCategories();
@@ -27,8 +27,8 @@ const sortedPosts = await sortPosts(posts);
 
 <MainLayout
   title={`Sincerely, Leo. | Posts about ${category.category_name}`}
-  description={`Leonardo's Posts about ${category.category_name}`}
-  image={"/categories.webp"}
+  description={`Explore Leonardo's Posts about ${category.category_name}.`}
+  image={"/categories_placeholder.png"}
 >
   <main class="categories-posts">
     {
@@ -40,11 +40,7 @@ const sortedPosts = await sortPosts(posts);
     }
 
     <div class="posts">
-      {
-        sortedPosts.map((post) => (
-          <PostCard {post} categories={getCategoriesFromPost(post)} />
-        ))
-      }
+      {sortedPosts.map((post: Post) => <PostCard {post} />)}
 
       {
         sortedPosts.length === 0 && (
