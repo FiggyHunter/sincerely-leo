@@ -1,17 +1,40 @@
 @use "../shared" as *;
 
 footer {
-  display: block;
+  @media screen and (min-width: helpers-pxToRem(650px)) {
+    gap: 2rem;
+  }
+  padding-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
   position: absolute;
-  bottom: -3rem;
+  bottom: -1%;
   left: 0;
   right: 0;
   z-index: 10;
   width: 100%;
   text-align: center;
+  align-items: center;
   padding: 0.5rem 1rem;
   background-color: $colors-nav-background;
   color: $colors-body-color;
-  font-family: $fonts-grand-bold;
+  font-family: $fonts-monty-bold;
   font-size: clamp(1rem, 1rem + 1vw, 1.75rem);
+
+  .rss {
+    order: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    p {
+      padding: 0;
+      transition: color 0.3s;
+      &:hover {
+        cursor: $cursors-pointer;
+        color: $colors-accent-color;
+      }
+    }
+  }
 }
