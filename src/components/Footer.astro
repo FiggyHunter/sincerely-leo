@@ -1,8 +1,13 @@
 ---
 const currentYear = new Date().getFullYear();
 import "@/assets/sass/layouts/_footer.scss";
+import { Image } from "astro:assets";
 ---
 
 <footer>
+  <a class="rss" href="/rss.xml">
+    <Image width={32} height={32} src={"/rss.webp"} alt="Icon for RSS feed" />
+    <p>RSS</p>
+  </a>
   &copy; {currentYear} Leonardo R. All rights reserved.
 </footer>
