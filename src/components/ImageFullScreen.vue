@@ -1,18 +1,25 @@
 <template>
-  <section @keydown="onEsc" class="image-gallery">
-    <h1>Say cheese!</h1>
-    <article v-for="photo in photos" :key="photo" class="image-gallery__image">
+  <div v-show="!showImages" class="loading"></div>
+
+  <section v-show="showImages" @keydown="onEsc" class="image-gallery">
+    <section class="headline">
+      <h1>Capturing moments <span>📸</span></h1>
+      <p>Leonardo Roić</p>
+    </section>
+    <article
+      v-for="photo in photos"
+      :key="photo.id"
+      class="image-gallery__image"
+    >
       <img
-        fetchpriority="high"
+        id="single-image"
         @click="doLogic"
         height="800"
         width="800"
-        :alt="photo.attributes.image.data.attributes.caption"
+        :alt="photo.attributes.image.data.attributes.caption || `my photograph`"
         :srcset="getSrcSetFromPhoto(photo)"
         sizes="(max-width: 500px) 25vw, (max-width: 1200px) 50vw, 100vw"
         :data-info="JSON.stringify(photo.attributes.metadata)"
-        loading="lazy"
-        decoding="async"
       />
     </article>
   </section>
@@ -72,15 +79,16 @@
 import "@/assets/sass/components/_imageFullScreen.scss";
 import { getPhotographs } from "@/api/photographs/getPhotographs";
 import { getSrcSetFromPhoto } from "@/api/photographs/getSrcSetFromPhoto";
-import { onMounted, ref } from "vue";
+import { onBeforeMount, onMounted, onUpdated, ref, watch } from "vue";
+import { sortPosts } from "@/api/posts/sortedPosts";
 
-const photos = await getPhotographs();
-
-getSrcSetFromPhoto(photos[0]);
+const fetchedPhotos = await getPhotographs();
+const photos = sortPosts(fetchedPhotos);
 
 const currentMetaData = ref(null);
 const currentSrcset = ref("");
 const currentSizes = ref("");
+const showImages = ref(false);
 const fullScreenShown = ref(false);
 
 const stopPropagation = function (e) {
@@ -95,12 +103,25 @@ const doLogic = function (e) {
   currentMetaData.value = JSON.parse(e.target.getAttribute("data-info")) || "";
 };
 
+onBeforeMount(() => {
+  Array.from(document.querySelectorAll(".image-gallery__image img")).forEach(
+    (image) => {
+      const row = JSON.parse(image.getAttribute("data-info"))?.row || "1";
+      const column = JSON.parse(image.getAttribute("data-info"))?.column || "1";
+      image.parentNode.style.gridRow = `span ${row}`;
+      image.parentNode.style.gridColumn = `span ${column}`;
+    }
+  );
+});
+
 onMounted(() => {
-  document.querySelectorAll(".image-gallery__image img")[0].loading = "auto";
-  document.querySelectorAll(".image-gallery__image img")[1].loading = "auto";
+  showImages.value = true;
+
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && fullScreenShown.value === true)
       fullScreenShown.value = false;
   });
 });
 </script>
+
+<style scoped></style>
