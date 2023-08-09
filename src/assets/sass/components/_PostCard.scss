@@ -1,17 +1,39 @@
 @use "../shared" as *;
 
+#see {
+  align-self: start;
+}
+
 .post {
+  gap: 1rem;
+  width: 80%;
+  margin-bottom: 2rem;
+  justify-self: center;
+  display: grid;
+
+  grid-template-columns: auto;
+  grid-template-rows: max-content auto;
+
+  a {
+    display: grid;
+    height: fit-content;
+  }
   &__image {
     transition: all 0.3s;
+    align-self: start;
+
     &:hover {
       cursor: $cursors-pointer;
       transform: scale(1.04);
     }
-    max-height: helpers-pxToRem(290px);
+    max-height: helpers-pxToRem(150px);
     width: 100%;
+    margin: 0 auto;
     border-radius: 2rem;
     object-fit: cover;
+
     @media screen and (min-width: helpers-pxToRem(700px)) {
+      max-height: helpers-pxToRem(200px);
       width: 100%;
       justify-self: center;
     }
@@ -28,29 +50,26 @@
   @media screen and (min-width: helpers-pxToRem(1500px)) {
     width: 60%;
   }
-  gap: 1rem;
-  width: 80%;
-  margin-bottom: 2rem;
-  justify-self: center;
-  display: grid;
-  grid-template-rows: max-content max-content max-content max-content;
+
   &__details {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    justify-items: center;
+    grid-auto-rows: min-content;
     gap: 0.5rem;
     flex-wrap: wrap;
+    height: 100%;
   }
   &__headline {
     width: 100%;
     display: grid;
-    grid-template-rows: auto max-content;
+    grid-template-rows: max-content max-content;
     font-family: $fonts-grand-medium;
     color: $colors-nav-background;
     text-align: center;
-
+    justify-content: space-between;
     h2 {
       font-family: $fonts-monty-semibold;
-      font-size: clamp(1.1rem, 1rem + 1vw, 1.3rem);
+      font-size: clamp(0.6rem, 0.6rem + 1vw, 1.3rem);
       transition: color 0.3s;
       align-self: start;
       &:hover {
@@ -66,7 +85,7 @@
       }
       font-size: clamp(0.9rem, 1rem + 1vw, 1.5rem);
       width: 100%;
-      align-self: start;
+      align-self: end;
       text-align: center;
       font-family: $fonts-grand-black;
       color: $colors-nav-background;
