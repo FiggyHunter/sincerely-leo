@@ -1,7 +1,7 @@
 @use "../shared" as *;
 
 .new-post {
-  margin: 2rem 0;
+  margin: 0.5rem 0;
   @media screen and (min-width: helpers-pxToRem(1500px)) {
     margin: 0;
   }
@@ -17,8 +17,14 @@
 
   &__image {
     position: relative;
-    max-height: 400px;
-    height: 400px;
+    @media screen and (min-width: helpers-pxToRem(800px)) {
+      max-height: 300px;
+    }
+    @media screen and (min-width: helpers-pxToRem(1200px)) {
+      max-height: 400px;
+    }
+    max-height: 200px;
+    height: 100%;
     width: 100%;
     object-fit: cover;
     border-radius: 1rem 1rem 0rem 0rem;
