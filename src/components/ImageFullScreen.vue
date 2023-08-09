@@ -28,9 +28,17 @@
     <div
       v-if="fullScreenShown"
       @click="fullScreenShown = false"
-      class="image-viewer-container"
+      :class="[
+        `image-viewer-container`,
+        { 'image-viewer-container--active': fullScreenShown },
+      ]"
     >
-      <div class="image-viewer">
+      <div
+        @touchstart="handleTouchStart"
+        @touchmove="handleTouchMove"
+        @touchend="handleTouchEnd"
+        class="image-viewer"
+      >
         <button class="close" @click="fullScreenShown = false">X</button>
         <img
           @click.prevent.capture="stopPropagation"
@@ -79,7 +87,7 @@
 import "@/assets/sass/components/_imageFullScreen.scss";
 import { getPhotographs } from "@/api/photographs/getPhotographs";
 import { getSrcSetFromPhoto } from "@/api/photographs/getSrcSetFromPhoto";
-import { onBeforeMount, onMounted, onUpdated, ref, watch } from "vue";
+import { onBeforeMount, onMounted, ref, watch } from "vue";
 import { sortPosts } from "@/api/posts/sortedPosts";
 
 const fetchedPhotos = await getPhotographs();
@@ -90,6 +98,11 @@ const currentSrcset = ref("");
 const currentSizes = ref("");
 const showImages = ref(false);
 const fullScreenShown = ref(false);
+
+watch(fullScreenShown, () => {
+  if (fullScreenShown.value) document.body.style.overflow = "hidden";
+  else document.body.style.overflow = "visible";
+});
 
 const stopPropagation = function (e) {
   e.stopPropagation();
@@ -122,6 +135,27 @@ onMounted(() => {
       fullScreenShown.value = false;
   });
 });
+
+const touchEnd = ref(0);
+const touchStart = ref(0);
+const touchThreshold = -100;
+
+const handleTouchStart = function (e: Event) {
+  touchStart.value = e.touches[0].clientY;
+};
+
+const handleTouchMove = function (e: Event) {
+  touchEnd.value = e.touches[0].clientY;
+};
+
+const handleTouchEnd = function (e: Event) {
+  const swipeDistance = touchEnd.value - touchStart.value;
+  console.log(window.innerWidth);
+
+  if (swipeDistance < touchThreshold && window.innerWidth < 900) {
+    fullScreenShown.value = false;
+  }
+};
 </script>
 
 <style scoped></style>

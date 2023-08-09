@@ -195,7 +195,12 @@
     </Transition>
     <Transition name="appear" mode="in-out">
       <div v-show="menuVisible" :class="[`mobile-menu`]">
-        <nav class="mobile-menu__navigation">
+        <nav
+          @touchstart.capture="handleTouchStart"
+          @touchmove.prevent.capture="handleTouchMove"
+          @touchend.capture="handleTouchEnd"
+          class="mobile-menu__navigation"
+        >
           <a href="/blog" class="box">
             <p>All posts >></p>
             <img
@@ -266,16 +271,19 @@ const photoActive = ref(false);
 const windowWidth = ref(0);
 const mainNavigationVisible = ref(true);
 const goTopVisible = ref(false);
+const menuVisible = ref(false);
 
 watch(windowWidth, () => {
   if (windowWidth.value >= 900) {
     menuVisible.value = false;
   }
 });
-const menuVisible = ref(false);
-const openMenu = function () {
-  if (!menuVisible.value) document.body.style.overflow = "hidden";
+
+watch(menuVisible, () => {
+  if (menuVisible.value) document.body.style.overflow = "hidden";
   else document.body.style.overflow = "unset";
+});
+const openMenu = function () {
   menuVisible.value = !menuVisible.value;
 };
 
@@ -318,4 +326,24 @@ onMounted(() => {
     }
   });
 });
+
+const touchEnd = ref(0);
+const touchStart = ref(0);
+const touchThreshold = -50;
+
+const handleTouchStart = function (e: Event) {
+  touchStart.value = e.touches[0].clientY;
+};
+
+const handleTouchMove = function (e: Event) {
+  touchEnd.value = e.touches[0].clientY;
+};
+
+const handleTouchEnd = function (e: Event) {
+  const swipeDistance = touchEnd.value - touchStart.value;
+
+  if (swipeDistance < touchThreshold) {
+    menuVisible.value = false;
+  }
+};
 </script>
