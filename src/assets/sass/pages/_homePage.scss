@@ -5,12 +5,19 @@
   grid-area: card-1;
   justify-items: center;
   width: 100%;
+  a {
+    width: 100%;
+  }
+  line-height: 1.1;
 }
 .card-2 {
   display: grid;
   justify-items: center;
   grid-area: card-2;
   width: 100%;
+  a {
+    width: 100%;
+  }
 }
 .main-text {
   grid-area: main;
@@ -46,16 +53,15 @@
 }
 
 .hero {
-  margin-top: clamp(6rem, 6rem + 3vw, 10rem);
+  margin-top: clamp(5.5rem, 5.5rem + 3vw, 10rem);
   display: grid;
   grid-template-areas:
-    "main"
-    "new"
-    "card-1"
-    "card-2"
-    "recent"
-    "recent-posts";
-  grid-template-columns: 1fr;
+    "main main"
+    "new new"
+    "card-1 card-2"
+    "recent recent"
+    "recent-posts recent-posts";
+  grid-template-columns: 1fr 1fr;
   @media screen and (min-width: helpers-pxToRem(700px)) {
     grid-template-areas:
       "main main"
@@ -95,8 +101,9 @@
     grid-template-columns: 1fr 1fr;
   }
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-area: recent-posts;
+  row-gap: 1rem;
 }
 
 .quote-corner {
