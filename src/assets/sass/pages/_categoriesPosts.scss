@@ -1,7 +1,7 @@
 @use "../shared" as *;
 
 .categories-posts {
-  padding: 5rem 0;
+  padding: 5rem 0rem 10rem 0;
   &__headline {
     color: $colors-nav-background;
     font-size: clamp(1.35rem, 1.35rem + 1vw, 2.6rem);
@@ -14,7 +14,8 @@
 }
 .posts {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
   @media screen and (min-width: helpers-pxToRem(800px)) {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;

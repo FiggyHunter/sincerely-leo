@@ -3,12 +3,11 @@
 .all-posts {
   padding: 5rem 0;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   @media screen and (min-width: helpers-pxToRem(1000px)) {
     grid-template-columns: 1fr 1fr;
   }
   flex-direction: column;
-  align-items: center;
   gap: 1rem;
   &__headline {
     font-family: $fonts-monty-bold;
