@@ -36,17 +36,16 @@ const srcset = getSrcSetFromImage(post.attributes.cover_image);
         <Labels text={category} theme={"universal"} link={slugify(category)} />
       ))
     }
-
+    <Labels
+      id="date"
+      text={new Date(post.attributes.publishedAt).toLocaleDateString()}
+      theme={"universal-date"}
+      link={""}
+    />
     <div class="post__headline">
-      <Labels
-        id="date"
-        text={new Date(post.attributes.publishedAt).toLocaleDateString()}
-        theme={"universal-date"}
-        link={""}
-      />
       <a href=`/blog/${post.attributes.Slug}`> <h2>{text}</h2></a>
 
-      <a href=`/blog/${post.attributes.Slug}`>See post >></a>
+      <a id="see" href=`/blog/${post.attributes.Slug}`>See post >></a>
     </div>
   </div>
 </article>
