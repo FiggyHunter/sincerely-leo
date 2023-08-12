@@ -181,7 +181,7 @@ const content = marked.parse(post.attributes.Content);
   }
   document.addEventListener("DOMContentLoaded", () => {
     const selectedHeadlines: BlogHeadingElement[] = Array.from(
-      document.querySelectorAll(".blog-post__content h3")
+      document.querySelectorAll(".blog-post__content h2")
     );
 
     const headlinesContainer: HTMLElement | null = document.querySelector(
@@ -231,7 +231,7 @@ const content = marked.parse(post.attributes.Content);
     }
 
     const headings: NodeListOf<HTMLHeadingElement> = document.querySelectorAll(
-      ".blog-post__content h3"
+      ".blog-post__content h2"
     );
 
     function handleIntersection(entries: IntersectionObserverEntry[]): void {

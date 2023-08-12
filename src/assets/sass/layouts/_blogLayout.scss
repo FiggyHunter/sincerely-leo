@@ -13,7 +13,7 @@
 
 .blog-post {
   h1 {
-    font-size: clamp(1rem, 1rem + 1vw, 3rem);
+    font-size: clamp(1.5rem, 1.5rem + 1vw, 3rem);
     font-family: $fonts-monty-extra-bold;
   }
   &__content {
@@ -29,23 +29,36 @@
     p {
       font-family: $fonts-monty-medium;
       line-height: 1.75;
-      font-size: clamp(0.8rem, 0.8rem + 1vw, 1.25rem);
+      font-size: clamp(0.75rem, 0.75rem + 1vw, 1.15rem);
     }
     h2 {
       font-family: $fonts-monty-extra-bold;
-      font-size: clamp(1.75rem, 1.75rem + 1vw, 2.25rem);
+      font-size: clamp(1.35rem, 1.35rem + 1vw, 2.5rem);
       margin: 3rem 0 1.5rem 0rem;
     }
     h3 {
       font-family: $fonts-monty-bold;
-      font-size: clamp(1.6rem, 1.6rem + 1vw, 2rem);
+      font-size: clamp(1.1rem, 1.1rem + 1vw, 2rem);
       margin: 3rem 0 1.5rem 0rem;
     }
     h4 {
-      font-size: 1.5rem;
+      font-size: clamp(0.8rem, 0.8rem + 1vw, 2rem);
       font-family: $fonts-monty-bold;
       margin: 2rem 0 1.5rem 0rem;
     }
+
+    h5 {
+      font-size: clamp(0.75rem, 0.75rem + 1vw, 1.75rem);
+      font-family: $fonts-monty-bold;
+      margin: 1rem 0 1rem 0rem;
+    }
+
+    h6 {
+      font-size: clamp(0.6rem, 0.6rem + 1vw, 1.5rem);
+      font-family: $fonts-monty-bold;
+      margin: 1rem 0 1rem 0rem;
+    }
+
     figure {
       margin: 2rem 0rem;
 
@@ -69,7 +82,6 @@
   margin: 0 auto;
   position: relative;
   top: -1rem;
-
   color: $colors-primary-text;
   z-index: 10;
 
@@ -78,7 +90,7 @@
     max-width: 100%;
     max-height: helpers-pxToRem(450px);
     @media screen and (min-width: helpers-pxToRem(1200px)) {
-      max-height: helpers-pxToRem(700px);
+      max-height: 70vh;
     }
     object-position: center;
     object-fit: cover;
