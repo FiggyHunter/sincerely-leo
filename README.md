@@ -1,68 +1,45 @@
-# Astro Starter Kit: Blog
+# Sincerely, Leo. | Blog made in Astro with Strapi. Designed in Figma.
 
-```
-npm create astro@latest -- --template blog
-```
+<b>Find it live: <a target="_blank" href="https://bakery.leotg.com" > HERE </a></b>
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/blog)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/blog)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/blog/devcontainer.json)
+---
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+<img style="width: 100%;" src="https://media.discordapp.net/attachments/1123910338740502599/1140379655837323405/blog_placeholder.png?width=399&height=224">
 
-![blog](https://user-images.githubusercontent.com/4677417/186189140-4ef17aac-c3c9-4918-a8c2-ce86ba1bb394.png)
+<h2> Project Technologies  </h2>
 
-Features:
+- Astro.js
+- SCSS
+- Typescript/Javascript
+- Strapi
+- Vue
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+<h2> Project Features  </h2>
 
-## 🚀 Project Structure
+- A modern, multipage blog.
+- Dark mode.
+- Self-hosted fonts, no tracking by google.
+- Custom made assets, favicon, images.
+- Product generation by AI.
+- Self-hosted on Linux, using caddy.
+- Dynamic sitemap updates using Express and Strapi WebHooks.
+- Efficient loading policies using NuxtImg.
+- Form validations for news letter and order details, including dynamic card validation.
+- Route guards, custom 404 page, persistant user state, state updates in the UI..
+- 100 lighthouse score
 
-Inside of your Astro project, you'll see the following folders and files:
+<h2 style="font-weight: bold; margin-bottom: 2rem;"> Project Images:  </h2>
 
-```
-├── public/
-├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
-```
+<h3> Light Home page: </h3>
+<img style="margin-bottom: 2rem;"  src="https://media.discordapp.net/attachments/1123910338740502599/1140381440882778253/image.png?width=1351&height=678">
+<h3> Dark Home page: </h3>
+<img style="margin-bottom: 2rem;"  src="https://media.discordapp.net/attachments/1123910338740502599/1140382476024430642/image.png?width=1358&height=679"> <h3> Blog posts page: </h3>
+<img style="margin-bottom: 2rem;"  src="https://media.discordapp.net/attachments/1123910338740502599/1140381475754225704/image.png?width=1348&height=679">
+<h3> Categories page: </h3>
+<img style="margin-bottom: 2rem;"  src="https://media.discordapp.net/attachments/1123910338740502599/1140381595707134093/image.png?width=1348&height=679">
+<h3> Blog post [...slug] page: </h3>
+<img style="margin-bottom: 2rem;"  src="https://media.discordapp.net/attachments/1123910338740502599/1140381844760711188/image.png?width=1354&height=679">
+<img style="margin-bottom: 2rem;" src="https://media.discordapp.net/attachments/1123910338740502599/1140381873814655077/image.png?width=1356&height=679">
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:3000`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+<h3> Photography page: </h3>
+<img style="margin-bottom: 2rem;"  src="https://media.discordapp.net/attachments/1123910338740502599/1140381931381473300/image.png?width=1348&height=679">
