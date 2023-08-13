@@ -62,6 +62,7 @@
   &__headline {
     width: 100%;
     display: grid;
+    grid-template-columns: 1fr;
     grid-template-rows: max-content max-content;
     font-family: $fonts-grand-medium;
     color: $colors-nav-background;
